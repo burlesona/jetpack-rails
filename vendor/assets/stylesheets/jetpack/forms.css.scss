@@ -1,0 +1,67 @@
+/* Forms +
+ * Influenced by Twitter Bootstrap, Normalize, and Formalize Projects
+ * ---------------------------------------------------------------------------------------- */
+
+// Universal
+form { margin-bottom: $baseline; @include font; @include clearfix;
+
+	fieldset {
+		margin: 0 0 $baseline; padding: 0; border: 0; position: relative; clear: both;
+		legend { display: block; margin-bottom: $baseline; font-size: $base_size * 1.3; }
+	}
+
+	div.input { @include clearfix; margin-bottom: $baseline;
+		label { display: block; text-align: right; height: 2em; font-weight: 700; }
+
+		input[type="text"], input[type="email"], select, textarea {
+			@include border-radius(3px); border: 1px solid $light2; box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1); color: $dark1;
+		}
+
+		.radio, .checkboxes {
+			label { display: inline !important; margin: 0 $baseline 0 0; height: auto; font-weight: 300; }
+			input { width: auto; margin-right: $baseline / 4; }
+		}
+		
+		span.hint { display: block; margin-top: $baseline / 4; clear: both; color: $light2; font-size: $base_size - 1px; }
+	}
+	
+	input[type="submit"] { margin-bottom: $baseline / 2; }
+}
+
+// Standard Form Elements (labels beside inputs)
+form.standard {
+
+	fieldset {
+		legend { padding: 0 0 0 20%; }
+	}
+
+	div.input {
+		label { float: left; width: 17.5%; margin-right: 2.5%; }
+
+		input[type="text"], input[type="email"], select, textarea { float: left; width: 80%; }
+	
+		.radio, .checkboxes {
+			label { float: none; }
+		}
+		
+		span.hint { float: left; margin-left: 20%; }
+	}
+	
+	input[type="submit"] { margin-left: 20%; }
+	
+	div.inset { margin-left: 20%; }
+}
+
+// Stacked Form Elements
+form.stacked { margin-bottom: $baseline; @include font;
+
+	div.input {
+		label { clear: both; margin-bottom: $baseline / 4; text-align: left; }
+		input, select, textarea { width: 100%; }
+		
+		.radio, .checkboxes { 
+			input { width: auto; }
+		}
+
+	}
+}

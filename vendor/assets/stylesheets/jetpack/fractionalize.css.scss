@@ -1,0 +1,101 @@
+/*	--------------------------------------------------
+
+	Fractionalize.CSS
+	A css framework that lets you setup many different
+	fractional grid layouts quickly and easily.
+	
+	WHY?
+	Grab just about any other framework and try this:
+	Create a layout using four equal colums.
+	Create a second layout using five equal columns.
+	Oops -- any "traditional" grid framework has either
+	and odd or even number of total columns, meaning that while
+	you're using that framework you can either divide the page
+	equally into odd increments, or even increments, but not
+	both.
+	
+	That's lame. Hence, this framework isn't about using a
+	fancy schmancy generator and agonizing over how many
+	columns you should ask it for, it's about being able
+	to quickly and easily divide the page into whatever
+	fractions you want at any time.
+	
+	Inspired by Blueprint CSS, and based on Blueprint
+	terminology and use.
+
+	SASSY
+	Originally a pure CSS framework, this has now been
+	converted to leverage the power of SASS to make it
+	even better.
+	http://www.sass-lang.com
+	
+	--------------------------------------------------	*/
+
+
+// LAYOUT DEFAULTS
+// Make sure the body always fills the page.
+* {	margin: 0; }
+html, body { height: 100%; }
+
+// VARIABLES
+// Setup the pixel dimensions
+$full_width: 960px;
+
+@function margin_width( $denom ) {
+	@if $denom == 1 { @return 0 }
+	@if $denom == 2 { @return 20px }
+	@if $denom == 3 { @return 21px }
+	@if $denom == 4 { @return 20px }
+	@if $denom == 5 { @return 20px }
+	@if $denom == 6 { @return 18px }
+	@if $denom == 8 { @return 16px }
+	@if $denom == 10 { @return 10px }
+}
+
+@function col_width( $denom ) {
+	$col_space: $full_width / $denom;
+	$gutters: $denom - 1;
+	$total_margin: $gutters * margin_width( $denom );
+	$total_width: $full_width - $total_margin;
+	@return $total_width / $denom
+}
+
+@function col_span( $num, $denom ) {
+	$col_width: $num * col_width( $denom );
+	$margin_width: ($num - 1) * margin_width( $denom );
+	@return $col_width + $margin_width
+}
+
+@mixin container( $width: $full_width ) {
+	width: $full_width;
+	margin: 0 auto;
+	clear: both;
+	@include clearfix;
+}
+
+@mixin grid( $num, $denom ) {
+	display: block;
+	float: left;
+	width: col_span( $num, $denom );
+	margin-left: margin_width( $denom );
+	&:first-child { margin-left: 0; }
+}
+
+@mixin prepend( $num, $denom ) {
+	padding-left: col_span( $num, $denom ) + margin_width( $denom );
+}
+
+@mixin append( $num, $denom ) {
+	padding-right: col_span( $num, $denom ) + margin_width( $denom );
+}
+
+@mixin col_border( $denom, $thickness: 1px, $style: solid, $color: #CCC ) {
+	$half: margin_width( $denom ) / 2;
+	$padding: $half - $thickness;
+	$margin: $half;
+	padding-left: $padding;
+	margin-left: $margin;
+	border-left: $thickness $style $color;
+}
+
+div.container { clear: both; margin: 0 auto; width: $full_width; }

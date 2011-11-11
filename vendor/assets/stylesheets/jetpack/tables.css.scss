@@ -1,0 +1,32 @@
+/* Tables +
+ * Largely taken from Twitter Bootstrap v1.3,
+ * with customizations and adaptations to make it more "sassy".
+ * ---------------------------------------------------------------------------------------- */
+
+
+// BASELINE STYLES
+table {
+	width: 100%; margin-bottom: $baseline; padding: 0; border: 1px solid $light1;
+	border-collapse: separate; // Done so we can round those corners!
+	*border-collapse: collapse; /* IE7, collapse table to remove spacing */
+	@include border-radius(4px);
+	th, td { padding: 10px 10px 9px; line-height: $baseline; text-align: left; }
+	th { padding-top: 9px; font-weight: bold; vertical-align: middle; border-bottom: 1px solid $light1; }
+	td { vertical-align: top; }
+	th + th, td + td { border-left: 1px solid #ddd; }
+	tr + tr td { border-top: 1px solid #ddd; }
+	tbody tr:first-child td:first-child { @include border-radius(4px 0 0 0); }
+	tbody tr:first-child td:last-child { @include border-radius(0 4px 0 0); }
+	tbody tr:last-child td:first-child { @include border-radius(0 0 0 4px); }
+	tbody tr:last-child td:last-child { @include border-radius(0 0 4px 0); }
+}
+
+
+// ZEBRA-STRIPING
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+table.striped {
+	tbody {
+		tr:nth-child(odd) td { background-color: $light1; }
+		tr:hover td { background-color: darken( $light1, 5% ); }
+	}
+}
