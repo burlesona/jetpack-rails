@@ -4,7 +4,6 @@
 
 // Universal
 form { margin-bottom: $baseline; @include font; @include clearfix;
-
 	fieldset {
 		margin: 0 0 $baseline; padding: 0; border: 0; position: relative; clear: both;
 		legend { display: block; margin-bottom: $baseline; font-size: $base_size * 1.3; }
@@ -30,7 +29,6 @@ form { margin-bottom: $baseline; @include font; @include clearfix;
 
 // Standard Form Elements (labels beside inputs)
 form.standard {
-
 	fieldset {
 		legend { padding: 0 0 0 20%; }
 	}
@@ -44,6 +42,10 @@ form.standard {
 			label { float: none; }
 		}
 		
+		&.date, &.time, &.datetime {
+			select { width: auto; float: none; }
+		}
+
 		span.hint { float: left; margin-left: 20%; }
 	}
 	
@@ -63,5 +65,9 @@ form.stacked { margin-bottom: $baseline; @include font;
 			input { width: auto; }
 		}
 
+		&.date, &.time, &.datetime {
+			select { width: auto; }
+		}
 	}
+
 }
