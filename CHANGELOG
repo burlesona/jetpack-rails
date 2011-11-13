@@ -1,5 +1,12 @@
 Changelog:
 
+0.1.3:
+- Added `standard_input` mixin for one-off situations.
+- Added definition for password inputs.
+
+0.1.2:
+- Added small button style.
+
 0.1.1:
 - Added Changelog.
 - Added default styles for date/time select fields.
