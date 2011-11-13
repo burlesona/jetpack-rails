@@ -347,6 +347,7 @@ input[type="submit"],
 input[type="button"] {
 	-webkit-appearance: none;
 	@include border-radius(4px);
+	@include box-shadow( 0px 1px 1px rgba(0,0,0,0.15) );
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding;
 	background-clip: padding-box;
