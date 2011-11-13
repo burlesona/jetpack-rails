@@ -28,6 +28,7 @@ a.button, span.button {
 	&.danger { @include buttonize( lighten($error2, 20%), $error2 ); color: $dark2; text-shadow: 0px 1px lighten($error2, 20%);
 		&:active { @include buttonize( $error2, lighten($error2, 20%) ); text-shadow: 0px 1px lighten($error2, 15%); @include box-shadow( none ); }
 	}
+	&.small { padding: 0px 6px; font-size: 11px; line-height: 1.4; }
 }
 
 div.alert_message {
