@@ -1,5 +1,11 @@
 Changelog:
 
+0.1.4:
+- Updated readme.
+- Fixed password field definition.
+- Added form_button and inline_submit mixins.
+- Added box-shadow to form buttons to match anchor buttons.
+
 0.1.3:
 - Added `standard_input` mixin for one-off situations.
 - Added definition for password inputs.
