@@ -1,5 +1,10 @@
 Changelog:
 
+0.2.0:
+- Moved to semantic versioning as described at http://semver.org
+  ( Version 0.1.4 actually added new features and therefore should have been version 0.2 )
+- Tweaked danger button style for greater readability
+
 0.1.4:
 - Updated readme.
 - Fixed password field definition.
