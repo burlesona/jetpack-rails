@@ -40,7 +40,7 @@ ul { margin: 0 0 $baseline 15px; }
 ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
 ul { list-style: disc; }
 ol { list-style: decimal; }
-li { line-height: $baseline; color: $light2; }
+li { line-height: $baseline; color: inherit; }
 ul.unstyled { list-style: none; margin-left: 0; }
 
 // DESCRIPTION LISTS
