@@ -13,7 +13,10 @@ form { margin-bottom: $baseline; @include font; @include clearfix;
 	}
 
 	div.input { @include clearfix; margin-bottom: $baseline;
-		label { display: block; text-align: right; height: 2em; font-weight: 700; }
+		label { display: block; text-align: right; height: 2em; font-weight: 700;
+			&.collection_radio,
+			&.collection_check { width: auto; float: none; display: inline; margin-left: $baseline / 4; }
+		}
 
 		input[type="text"], input[type="email"], input[type="password"], select, textarea {
 			@include standard_input;
