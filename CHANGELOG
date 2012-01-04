@@ -1,4 +1,8 @@
 Changelog:
+0.3.0:
+- Added Kaminari-style pagination.
+- Added simple_form style collection check and radio label styles.
+
 0.2.2:
 - I disagree with Twitter Boostrap (the main inspiration for the typography styles). List
 	items should definitely not be gray by default. <li>'s will now inherit their color.
