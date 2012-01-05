@@ -1,4 +1,8 @@
 Changelog:
+0.3.1:
+- Fix for check box and radio button definitions, plus supporting simple_form by default.
+- Minor fix on table styles and active button styles.
+
 0.3.0:
 - Added Kaminari-style pagination.
 - Added simple_form style collection check and radio label styles.
