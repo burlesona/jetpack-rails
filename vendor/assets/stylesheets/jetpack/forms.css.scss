@@ -26,10 +26,9 @@ form { margin-bottom: $baseline; @include font; @include clearfix;
 			label { display: inline !important; margin: 0 $baseline 0 0; height: auto; font-weight: 300; }
 			input { width: auto; margin-right: $baseline / 4; }
 		}
-		
-		span.hint { display: block; margin-top: $baseline / 4; clear: both; color: $light2; font-size: $base_size - 1px; }
 	}
-	
+
+	span.hint { display: block; margin-top: $baseline / 4; clear: both; color: $light2; font-size: $base_size - 1px; }	
 	input[type="submit"] { margin-bottom: $baseline / 2; }
 }
 
