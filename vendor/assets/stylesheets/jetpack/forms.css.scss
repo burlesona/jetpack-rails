@@ -44,7 +44,7 @@ form.standard {
 
 		input[type="text"], input[type="email"], input[type="password"], select, textarea { float: left; width: 80%; }
 	
-		.radio, .checkboxes {
+		&.radio, &.check_boxes {
 			label { float: none; }
 		}
 		
@@ -67,13 +67,13 @@ form.stacked { margin-bottom: $baseline; @include font;
 		label { clear: both; margin-bottom: $baseline / 4; text-align: left; }
 		input, select, textarea { width: 100%; }
 		
-		.radio, .checkboxes { 
-			input { width: auto; }
+		&.radio, &.check_boxes { 
+			input { width: auto; display: inline; }
+			label { display: inline; margin-left: $baseline / 4; margin-right: $baseline / 2; }
 		}
 
 		&.date, &.time, &.datetime {
 			select { width: auto; }
 		}
 	}
-
 }
