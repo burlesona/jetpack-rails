@@ -64,7 +64,7 @@ form.stacked { margin-bottom: $baseline; @include font;
 
 	div.input {
 		label { clear: both; margin-bottom: $baseline / 4; text-align: left; }
-		input, select, textarea { width: 100%; }
+		input[type="text"], input[type="email"], input[type="password"], select, textarea { width: 100%; }
 		
 		&.radio, &.check_boxes { 
 			input { width: auto; display: inline; }
