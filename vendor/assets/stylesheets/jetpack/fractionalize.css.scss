@@ -31,71 +31,86 @@
 	
 	--------------------------------------------------	*/
 
-
 // LAYOUT DEFAULTS
 // Make sure the body always fills the page.
 * {	margin: 0; }
 html, body { height: 100%; }
 
-// VARIABLES
-// Setup the pixel dimensions
-$full_width: 960px;
+$desktop: 1000px;
+$tablet: 760px;
+$mobile: 280px;
+$margin: 20px;
 
-@function margin_width( $denom ) {
-	@if $denom == 1 { @return 0 }
-	@if $denom == 2 { @return 20px }
-	@if $denom == 3 { @return 21px }
-	@if $denom == 4 { @return 20px }
-	@if $denom == 5 { @return 20px }
-	@if $denom == 6 { @return 18px }
-	@if $denom == 8 { @return 16px }
-	@if $denom == 10 { @return 10px }
-}
-
-@function col_width( $denom ) {
-	$col_space: $full_width / $denom;
-	$gutters: $denom - 1;
-	$total_margin: $gutters * margin_width( $denom );
-	$total_width: $full_width - $total_margin;
-	@return $total_width / $denom
-}
-
-@function col_span( $num, $denom ) {
-	$col_width: $num * col_width( $denom );
-	$margin_width: ($num - 1) * margin_width( $denom );
-	@return $col_width + $margin_width
-}
-
-@mixin container( $width: $full_width ) {
-	width: $full_width;
+@mixin container {
+	width: $desktop;
+	@media only screen and (min-width: 768px) and (max-width: 1023px) { width: $tablet; }
+	@media only screen and (max-width: 767px) { width: $mobile; }
 	margin: 0 auto;
 	clear: both;
 	@include clearfix;
 }
 
+@function col_size( $denom, $width: $desktop ) {
+	@if $width < $tablet {
+		@return double_columns( $denom, $width )
+	}
+	@else {
+		@return regular_columns( $denom, $width )
+	}
+}
+
+@function regular_columns( $denom, $width: $desktop ) {
+		$gutters: $denom - 1;
+		$total_gutter: $gutters * $margin;
+		$column_area: $width - $total_gutter;
+		@return $column_area / $denom;
+}
+
+@function double_columns( $denom, $width: $landscape ) {
+		$double: $denom / 2;
+		$gutters: $double * 2;
+		$total_gutter: $gutters * $margin;
+		$column_area: $width - $total_gutter;
+		@return $column_area / $double;
+}
+
+
+@function col_span( $num, $denom, $width: $desktop ) {
+	$column_size: col_size( $denom, $width );
+	$column_area: $column_size * $num;
+	$interior_margins: ($num - 1) * $margin;
+	@return $column_area + $interior_margins;
+}
+
 @mixin grid( $num, $denom ) {
 	display: block;
 	float: left;
+	margin-left: $margin;
 	width: col_span( $num, $denom );
-	margin-left: margin_width( $denom );
 	&:first-child { margin-left: 0; }
+	@media only screen and (min-width: 768px) and (max-width: 1023px) { width: col_span( $num, $denom, $tablet ); }
+	@media only screen and (max-width: 767px) {
+		width: $mobile;
+		margin-left: 0;
+	}
 }
 
 @mixin prepend( $num, $denom ) {
-	padding-left: col_span( $num, $denom ) + margin_width( $denom );
+	margin-left: col_span( $num, $denom ) + $margin;
+	&:first-child { margin-left: col_span( $num, $denom ) + $margin; }
 }
 
 @mixin append( $num, $denom ) {
-	padding-right: col_span( $num, $denom ) + margin_width( $denom );
+	margin-right: col_span( $num, $denom ) + $margin;
+	&:first-child { margin-right: col_span( $num, $denom ) + $margin; }
 }
 
-@mixin col_border( $denom, $thickness: 1px, $style: solid, $color: #CCC ) {
-	$half: margin_width( $denom ) / 2;
+@mixin col_border( $thickness: 1px, $style: solid, $color: #CCC ) {
+	$half: $margin / 2;
 	$padding: $half - $thickness;
-	$margin: $half;
 	padding-left: $padding;
-	margin-left: $margin;
+	margin-left: $half;
 	border-left: $thickness $style $color;
 }
 
-div.container { clear: both; margin: 0 auto; width: $full_width; }
+div.container { @include container; }

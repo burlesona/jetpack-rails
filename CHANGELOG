@@ -1,4 +1,16 @@
 Changelog:
+0.4.0:
+- Major upgrade to Fractionalize library, with the following results:
+  > Standard containers are now 1000px wide instead of 960.
+  > The layout now uses media queries to respond to three different dimensions:
+    - Desktop (More than 1023px wide)
+    - Tablet (From 768 to 1023px wide)
+    - Mobile (Less than 768px wide)
+    The tablet version is just a slightly compressed layout. The mobile version becomes
+    one-column.
+  > Margins are now fixed at 20px throughout, instead of variable based on the number of columns.
+- Corrected Sass Gem dependency to use any version after 3.1.x.
+
 0.3.2:
 - Made input widths more intuitive in stacked forms
 - Adjusted style so hint spans in forms do not have to be contained in an input div.
