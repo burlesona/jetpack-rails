@@ -11,7 +11,7 @@ p {
 }
 
 // HEADING MIXINS
-@mixin header( $level ) {
+@mixin heading( $level ) {
 	font-weight: 700; color: $dark2; line-height: $baseline * 2;
 	small { color: $light2; }
 	@if $level == 1 {
@@ -34,12 +34,12 @@ p {
 }
 
 // HEADING DEFINITIONS
-h1 { @include header(1); }
-h2 { @include header(2); }
-h3 { @include header(3); }
-h4 { @include header(4); }
-h5 { @include header(5); }
-h6 { @include header(6); }
+h1 { @include heading(1); }
+h2 { @include heading(2); }
+h3 { @include heading(3); }
+h4 { @include heading(4); }
+h5 { @include heading(5); }
+h6 { @include heading(6); }
 
 // LISTS
 ol { margin: 0 0 $baseline 20px; }

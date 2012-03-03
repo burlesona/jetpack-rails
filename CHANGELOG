@@ -1,4 +1,7 @@
 Changelog:
+0.4.2:
+- Typo correction... pushed 0.4.1 too soon!
+
 0.4.1:
 - Changed Typography module as follows:
   > Created mixins for headings instead of definitions.

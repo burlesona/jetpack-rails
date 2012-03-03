@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "jetpack-rails"
-  s.version = '0.4.1'
+  s.version = '0.4.2'
   s.authors = ["Andrew Burleson"]
   s.email = 'andrew@eighty-b.com'
   s.summary = "A sweet fractional grid system plus an awesome bootstrap mashup, optimized for the asset pipeline."
