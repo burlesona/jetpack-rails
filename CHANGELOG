@@ -1,6 +1,15 @@
 Changelog:
+0.4.1:
+- Changed Typography module as follows:
+  > Created mixins for headings instead of definitions.
+  > For backward compatibility I also updated the default definitions to use the new mixins.
++ Note: This is the direction the library is going to go: Mixins > Definitions. My
+  eventual goal is to get most or even all of the defitions extracted to their own seperate
+  module so users have the option of only including the mixins they want without any other
+  styles getting in the way.
+
 0.4.0:
-- Major upgrade to Fractionalize library, with the following results:
+- Major upgrade to Fractionalize module, with the following results:
   > Standard containers are now 1000px wide instead of 960.
   > The layout now uses media queries to respond to three different dimensions:
     - Desktop (More than 1023px wide)
