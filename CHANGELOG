@@ -1,4 +1,7 @@
 Changelog:
+0.4.3:
+- Changed Heading styles to default to 'inherit' instead of a specific color.
+
 0.4.2:
 - Typo correction... pushed 0.4.1 too soon!
 
