@@ -1,6 +1,8 @@
 Changelog:
 0.4.3:
 - Changed Heading styles to default to 'inherit' instead of a specific color.
+- Tiny adjustment to button styles to make them line up better.
+- Added description to gemspec.
 
 0.4.2:
 - Typo correction... pushed 0.4.1 too soon!
