@@ -1,4 +1,6 @@
 Changelog:
+0.5.0:
+- Added `view_name` helper method for semantic CSS namespacing.
 0.4.3:
 - Changed Heading styles to default to 'inherit' instead of a specific color.
 - Tiny adjustment to button styles to make them line up better.
