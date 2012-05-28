@@ -12,10 +12,10 @@ p {
 
 // HEADING MIXINS
 @mixin heading( $level ) {
-	font-weight: 700; color: inherit; line-height: $baseline * 2;
+	font-weight: 700; color: inherit; line-height: 1.2; margin-bottom: $baseline / 2;
 	small { color: $light2; }
 	@if $level == 1 {
-		font-size: 30px; margin-bottom: $baseline / 2;
+		font-size: 30px;
 		small { font-size: 18px; font-weight: 500; }
 	} @else if $level == 2 {
 		font-size: 24px;
