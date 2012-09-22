@@ -1,5 +1,5 @@
 Changelog:
-0.5.0 (in progress):
+0.5.0:
 - Added Flash Message helper to standardize display of flash messages.
 - Changed flash message default styles to fit new flash message handler.
 - Changed heading mixins to not use line-height for whitespace since that breaks strangely on responsive layout.
