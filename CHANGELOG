@@ -1,4 +1,6 @@
 Changelog:
+0.5.1:
+- Updated gemspec and gitignore.
 0.5.0:
 - Added Flash Message helper to standardize display of flash messages.
 - Changed flash message default styles to fit new flash message handler.
