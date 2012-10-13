@@ -19,13 +19,8 @@ module Jetpack
 
 		# Creates a smart title helper, appending [DEV] when you're in dev mode.
 		def title(page_title)
-			APP_NAME = @app_name unless defined?(APP_NAME)
-			mode = "[DEV] " unless Rails.env.production?
-			if page_title
-				content_for(:title) { mode.to_s + page_title + " | " + APP_NAME }
-			else
-				content_for(:title) { mode.to_s + APP_NAME }
-			end
+			mode = "[DEV] " unless ::Rails.env.production?
+			content_for(:title) { mode.to_s + page_title + " | " }
 		end
 	end
 end
