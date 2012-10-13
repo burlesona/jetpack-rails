@@ -38,7 +38,7 @@ div.alert_message {
 	@include border-radius(4px); color: $white; padding: 7px 12px; margin-bottom: $baseline; @include box-shadow;
 	&.success { @include buttonize( lighten( $success2, 15% ), $success2); text-shadow: 0px -1px darken( $success2, 15% ); }
 	&.notice { @include buttonize( lighten( $notice2, 15% ), $notice2); color: $dark2; text-shadow: 0px 1px $notice1; }
-	&.error { @include buttonize( lighten( $error2, 15% ), $error2); text-shadow: 0px -1px darken( $error2, 15% ); }
+	&.error, &.alert { @include buttonize( lighten( $error2, 15% ), $error2); text-shadow: 0px -1px darken( $error2, 15% ); }
 	a.close { @include font( 18px, $sans, 700, 13.5px ); float: right; text-decoration: none; opacity: 0.2; color: $black; text-shadow: 0px 1px $white;
 		&:hover { opacity: 0.4; }
 	}

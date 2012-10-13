@@ -7,6 +7,16 @@ module Jetpack
 			[controller.controller_name,controller.action_name,params[:id]].compact.join(' ')
 		end
 
+		# Outputs a standard flash message.
+		def flash_messages
+			str = ""
+			flash.each do |type, msg|
+				type == :alert ? persist = true : persist = false
+				str += content_tag :div, msg, :class => ['alert_message', type], :data => { :persist => persist }
+			end
+			str.html_safe
+		end
+
 		# Creates a smart title helper, appending [DEV] when you're in dev mode.
 		def title(page_title)
 			APP_NAME = @app_name unless defined?(APP_NAME)
