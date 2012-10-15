@@ -13,7 +13,7 @@
 					box-shadow: $shadow;
 }
 
-@mixin font( $size: $base_size, $stack: $sans, $weight: $base_weight, $line_height: $baseline ) {
+@mixin font( $size: $base_size, $stack: $base_font, $weight: $base_weight, $line_height: $baseline ) {
 	font-size: $size;
 	font-family: $stack;
 	font-weight: $weight;

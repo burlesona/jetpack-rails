@@ -1,5 +1,6 @@
 Changelog:
 0.6.0:
+- Adjusted typography to allow setting "base font" application-wide
 - Added title helper method.
 
 0.5.1:

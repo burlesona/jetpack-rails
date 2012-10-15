@@ -69,6 +69,7 @@ Second (recommended), if you want to define your own settings, paste the followi
 	$serif: "Georgia", "Times", "Times New Roman", serif;
 	$mono: "Monaco", "Andale Mono", "Courier New", monospace;
 	
+	$base_font: $sans;
 	$base_size: 13px;
 	$base_weight: 400;
 	$baseline: 18px;
