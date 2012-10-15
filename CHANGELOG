@@ -1,5 +1,8 @@
 Changelog:
 0.6.0:
+- Tweaked default button style to vertical-align: baseline, and adjusted
+  the style of the inline_submit mixin so now submit buttons mixed inline will line up next to regular buttons correctly.
+- Removed form_button mixin as it no longer served a purpose (see above).
 - Adjusted typography to allow setting "base font" application-wide
 - Added title helper method.
 
