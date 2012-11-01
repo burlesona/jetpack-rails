@@ -93,6 +93,7 @@ $margin: 20px;
 		width: $mobile;
 		margin-left: 0;
 	}
+	img { max-width: 100%; }
 }
 
 @mixin prepend( $num, $denom ) {

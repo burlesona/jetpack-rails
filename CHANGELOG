@@ -1,4 +1,7 @@
 Changelog:
+0.6.1:
+- Added image max-width to grid containers so images will automatically downscale as needed.
+
 0.6.0:
 - Tweaked default button style to vertical-align: baseline, and adjusted
   the style of the inline_submit mixin so now submit buttons mixed inline will line up next to regular buttons correctly.
