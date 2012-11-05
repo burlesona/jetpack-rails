@@ -1,4 +1,7 @@
 Changelog:
+0.6.2:
+- Adjusted resetize style of disabled elements.
+- Added definition of disabled elements to forms stylesheet and matched to link button styles.
 0.6.1:
 - Added image max-width to grid containers so images will automatically downscale as needed.
 

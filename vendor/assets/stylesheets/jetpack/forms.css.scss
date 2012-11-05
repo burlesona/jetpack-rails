@@ -6,6 +6,18 @@
 // Standard Input Mixin for one-off useage
 @mixin standard_input { @include border-radius(3px); border: 1px solid $light2; box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1); color: $dark1; }
 
+// Adjustment to disabled elements to match link buttons
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled] {
+	color: $light2;
+}
+
+
+// Common Form Styles
 form { margin-bottom: $baseline; @include font; @include clearfix;
 	fieldset {
 		margin: 0 0 $baseline; padding: 0; border: 0; position: relative; clear: both;
