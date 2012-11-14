@@ -43,8 +43,8 @@ $margin: 20px;
 
 @mixin container {
 	width: $desktop;
-	@media only screen and (min-width: 768px) and (max-width: 1023px) { width: $tablet; }
-	@media only screen and (max-width: 767px) { width: $mobile; }
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) { width: $tablet; }
+	@media only screen and (max-device-width: 767px) { width: $mobile; }
 	margin: 0 auto;
 	clear: both;
 	@include clearfix;

@@ -1,4 +1,6 @@
 Changelog:
+0.6.3:
+- Adjusted fractionalize to use 'device' width instead of 'width' in media queries.
 0.6.2:
 - Adjusted resetize style of disabled elements.
 - Added definition of disabled elements to forms stylesheet and matched to link button styles.
