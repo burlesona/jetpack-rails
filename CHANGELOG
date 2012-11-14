@@ -1,4 +1,7 @@
 Changelog:
+0.6.4:
+- Fixed an accidental regression in 0.6.3.
+- Added `respond-to` mixin.
 0.6.3:
 - Adjusted fractionalize to use 'device' width instead of 'width' in media queries.
 0.6.2:
