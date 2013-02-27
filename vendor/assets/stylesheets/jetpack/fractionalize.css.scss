@@ -52,8 +52,10 @@ $margin: 20px;
 
 @mixin container {
 	width: $desktop;
-	@media screen and (device-width: 768px), screen and (min-width: 768px) and (max-width: 1023px) { width: $tablet; }
-	@media screen and (device-width: 480px), screen and (max-width: 767px) { width: $mobile; }
+	@if $responsive {
+		@include respond-to(tablet) { width: $tablet; }
+		@include respond-to(mobile) { width: $mobile; }
+	}
 	margin: 0 auto;
 	clear: both;
 	@include clearfix;
@@ -97,10 +99,9 @@ $margin: 20px;
 	margin-left: $margin;
 	width: col_span( $num, $denom );
 	&:first-child { margin-left: 0; }
-	@media only screen and (min-width: 768px) and (max-width: 1023px) { width: col_span( $num, $denom, $tablet ); }
-	@media only screen and (max-width: 767px) {
-		width: $mobile;
-		margin-left: 0;
+	@if $responsive {
+		@include respond-to(tablet) { width: col_span( $num, $denom, $tablet ); }
+		@include respond-to(mobile) { width: $mobile; margin-left: 0; }
 	}
 	img { max-width: 100%; }
 }

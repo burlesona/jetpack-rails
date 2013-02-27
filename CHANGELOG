@@ -1,4 +1,10 @@
 Changelog:
+0.7.0:
+- Added `nav_link_to` helper for creating navigation links.
+- Added `viewing?` helper to match for view names.
+- Added `$responsive` flag to toggle responsive grid throughout an application.
+- Changed Fractionalize to use `respond-to` mixin.
+- Adjusted typography settings to make H1s not so crazy.
 0.6.4:
 - Fixed an accidental regression in 0.6.3.
 - Added `respond-to` mixin.

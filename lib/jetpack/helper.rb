@@ -7,6 +7,20 @@ module Jetpack
 			[controller.controller_name,controller.action_name,params[:id]].compact.join(' ')
 		end
 
+		# Checks whether the user is looking at a particular view.
+		# Helpful for cases like a unique home page design element: - if viewing? 'home'
+		def viewing?(string)
+			view_name.include?(string)
+		end
+
+		# Creates a nav link, ie. one that links to nothing ("#") if it is the current page
+		# and in that case the link has the class "current"
+		def nav_link_to(text, path)
+			link_to_unless_current text, path do
+				link_to text, '#', :class => 'current'
+			end
+		end
+
 		# Outputs a standard flash message.
 		def flash_messages
 			str = ""
