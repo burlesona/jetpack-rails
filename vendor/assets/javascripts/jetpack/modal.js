@@ -5,7 +5,7 @@
  * Inspired by jQuery Reveal Plugin 1.0
  */
 
-(function ($) {
+$(function(){
 	$('body').on('click', 'a[data-modal]', function (event) {
 		event.preventDefault();
 		var modalLocation = $(this).attr('data-modal');
@@ -36,6 +36,10 @@
 			modalBg.fadeOut();
 		}
 
+		modalBg.click( function() {
+			closeModal();
+		});
+
 		$('body').keyup( function (event) {
 			if (event.which === 27) {
 				closeModal();
@@ -48,4 +52,4 @@
 		});
 
 	};
-})(jQuery);
+});
