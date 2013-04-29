@@ -6,23 +6,23 @@
  */
 
 (function ($) {
-	$('a[data-modal]').live('click', function (event) {
+	$('body').on('click', 'a[data-modal]', function (event) {
 		event.preventDefault();
 		var modalLocation = $(this).attr('data-modal');
 		$('#' + modalLocation).modal();
 	});
-	
+
 	$.fn.modal = function() {
 		var modal = $(this);
 		var modalBg = $('.modal_bg');
-		
+
 		if ( modalBg.length == 0 ) {
 			modalBg = $('<div class="modal_bg"></div>').insertAfter(modal);
 		}
 
 		if( modal.not(':visible') ) {
 			openModal();
-		} else { 
+		} else {
 			closeModal();
 		}
 
@@ -41,11 +41,11 @@
 				closeModal();
 			}
 		});
-		
+
 		$('a.close_modal').click( function(event) {
 			event.preventDefault();
 			closeModal();
 		});
-		
+
 	};
 })(jQuery);

@@ -1,18 +1,25 @@
 Changelog:
+0.7.1:
+- Removed jQuery 'live' call and replaced with event on body.
+
 0.7.0:
 - Added `nav_link_to` helper for creating navigation links.
 - Added `viewing?` helper to match for view names.
 - Added `$responsive` flag to toggle responsive grid throughout an application.
 - Changed Fractionalize to use `respond-to` mixin.
 - Adjusted typography settings to make H1s not so crazy.
+
 0.6.4:
 - Fixed an accidental regression in 0.6.3.
 - Added `respond-to` mixin.
+
 0.6.3:
 - Adjusted fractionalize to use 'device' width instead of 'width' in media queries.
+
 0.6.2:
 - Adjusted resetize style of disabled elements.
 - Added definition of disabled elements to forms stylesheet and matched to link button styles.
+
 0.6.1:
 - Added image max-width to grid containers so images will automatically downscale as needed.
 
