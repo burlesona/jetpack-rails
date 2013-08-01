@@ -2,22 +2,17 @@
  * Resetize
  * A mashup of "Normalize" and "Formalize".
  * -----------------------------------------------------------------------------------------*/
- 
 
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 
-/* Normalize.css +
- * normalize.css 2011-08-31T22:02 UTC	 http://github.com/necolas/normalize.css
- *
- * with customizations to make it more "sassy" and more modular.
- * ---------------------------------------------------------------------------------------- */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
 
-/* =============================================================================
-	 HTML5 display definitions
-	 ========================================================================== */
-
-/*
- * Corrects block display not defined in IE6/7/8/9 & FF3
+/**
+ * Correct `block` display not defined in IE 8/9.
  */
+
 article,
 aside,
 details,
@@ -26,259 +21,249 @@ figure,
 footer,
 header,
 hgroup,
+main,
 nav,
-section {
-		display: block;
+section,
+summary {
+    display: block;
 }
 
-/*
- * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
  */
+
 audio,
 canvas,
 video {
-		display: inline-block;
-		*display: inline;
-		*zoom: 1;
+    display: inline-block;
 }
 
-/*
- * Prevents modern browsers from displaying 'audio' without controls
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
  */
+
 audio:not([controls]) {
-		display: none;
+    display: none;
+    height: 0;
 }
 
-/*
- * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
- * Known issue: no IE6 support
+/**
+ * Address styling not present in IE 8/9.
  */
 
 [hidden] {
-		display: none;
+    display: none;
 }
 
+/* ==========================================================================
+   Base
+   ========================================================================== */
 
-/* =============================================================================
-	 Base
-	 ========================================================================== */
-
-/*
- * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
- *		http://clagnut.com/blog/348/#c790
- * 2. Keeps page centred in all browsers regardless of content height
- * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
- *		www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
  */
 
 html {
-		font-size: 100%; /* 1 */
-		overflow-y: scroll; /* 2 */
-		-webkit-text-size-adjust: 100%; /* 3 */
-		-ms-text-size-adjust: 100%; /* 3 */
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
 }
 
-/*
- * Addresses margins handled incorrectly in IE6/7
+/**
+ * Remove default margin.
  */
 
 body {
-		margin: 0;
+    margin: 0;
 }
 
-/* 
- * Addresses font-family inconsistency between 'textarea' and other form elements.
+p {
+  margin: 3px 0 12px;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
  */
 
-body,
-button,
-input,
-select,
-textarea {
-		font-family: sans-serif;
+a:focus {
+    outline: thin dotted;
 }
 
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
 
-/* =============================================================================
-	 Links
-	 ========================================================================== */
-
-a { color: $color1; text-decoration: none;
-	&:hover { text-decoration: underline; outline: 0; } // Improves readability when focused and also mouse hovered in all browsers
-	&:active { color: lighten( $color1, 10% ); }
-	&:visited { color: $color1; }
-	&:focus { outline: thin dotted;} // Addresses outline displayed oddly in Chrome
+a:active,
+a:hover {
+    outline: 0;
 }
 
-/* =============================================================================
-	 Typography
-	 ========================================================================== */
+/* ==========================================================================
+   Typography
+   ========================================================================== */
 
-/*
- * Addresses styling not present in IE7/8/9, S5, Chrome
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
 
 abbr[title] {
-		border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 
-/*
- * Set address to not be italics by default.
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
-address { font-style: inherit; }
 
-/*
- * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
-*/
-
-b, 
-strong { 
-		font-weight: bold; 
+b,
+strong {
+    font-weight: bold;
 }
 
-/*
- * Addresses styling not present in S5, Chrome
+/**
+ * Address styling not present in Safari 5 and Chrome.
  */
 
 dfn {
-		font-style: italic;
+    font-style: italic;
 }
 
-/*
- * Addresses styling not present in IE6/7/8/9
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
  */
 
 mark {
-		background: #ff0;
-		color: #000;
+    background: #ff0;
+    color: #000;
 }
 
-/*
- * Corrects font family set oddly in IE6, S4/5, Chrome
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
  */
 
-pre,
 code,
 kbd,
+pre,
 samp {
-		font-family: monospace, serif;
-		_font-family: 'courier new', monospace;
-		font-size: 1em;
+    font-family: monospace, serif;
+    font-size: 1em;
 }
 
-/*
- * Improves readability of pre-formatted text in all browsers
+/**
+ * Improve readability of pre-formatted text in all browsers.
  */
 
 pre {
-		white-space: pre;
-		white-space: pre-wrap;
-		word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
-/*
- * 1. Addresses CSS quotes not supported in IE6/7
- * 2. Addresses quote property not supported in S4
+/**
+ * Set consistent quote types.
  */
 
-/* 1 */
-
 q {
-		quotes: none;
+    quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/* 2 */
-
-q:before,
-q:after {
-		content: '';
-		content: none;
-}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
 
 small {
-		font-size: 75%;
+    font-size: 80%;
 }
 
-/*
- * Prevents sub and sup affecting line-height in all browsers
- * gist.github.com/413930
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
 
 sub,
 sup {
-		font-size: 75%;
-		line-height: 0;
-		position: relative;
-		vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 sup {
-		top: -0.5em;
+    top: -0.5em;
 }
 
 sub {
-		bottom: -0.25em;
+    bottom: -0.25em;
 }
 
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
 
-/* =============================================================================
-	 Lists
-	 ========================================================================== */
-
-ul, ol { margin: 0; padding: 0; }
-dd { margin: 0; }
-nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; }
-
-
-/* =============================================================================
-	 Embedded content
-	 ========================================================================== */
-
-/*
- * 1. Removes border when inside 'a' element in IE6/7/8/9, F3
- * 2. Improves image quality when scaled in IE7
- *		code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+/**
+ * Remove border when inside `a` element in IE 8/9.
  */
 
 img {
-		border: 0; /* 1 */
-		-ms-interpolation-mode: bicubic; /* 2 */
+    border: 0;
 }
 
-/*
- * Corrects overflow displayed oddly in IE9 
+/**
+ * Correct overflow displayed oddly in IE 9.
  */
 
 svg:not(:root) {
-		overflow: hidden;
+    overflow: hidden;
 }
 
+/* ==========================================================================
+   Figures
+   ========================================================================== */
 
-/* =============================================================================
-	 Figures
-	 ========================================================================== */
-
-/*
- * Addresses margin not present in IE6/7/8/9, S5, O11
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
  */
 
 figure {
-		margin: 0;
+    margin: 0;
 }
 
-/* =============================================================================
-	 Tables
-	 ========================================================================== */
+/* ==========================================================================
+   Tables
+   ========================================================================== */
 
-/* 
- * Remove most spacing between table cells
+/**
+ * Remove most spacing between table cells.
  */
 
 table {
-		border-collapse: collapse;
-		border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
 
 /* Formalize.css
  * with customizations and adaptations to make it more "sassy".
@@ -303,42 +288,14 @@ textarea {
 	vertical-align: middle;
 }
 
-input[type="radio"],
 input[type="checkbox"] {
-	position: relative;
-	vertical-align: top;
-	top: 2px;
-	/* IE8, IE9, IE10 */
-	top: 0\0;
-	/* IE7 */
-	*top: -3px;
+  position: relative;
+  bottom: 1px;
 }
 
-/* iPad */
-@media (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 1024px) {
-	input[type="radio"],
-	input[type="checkbox"] {
-		vertical-align: baseline;
-		top: 2px;
-	}
-}
-
-/* iPhone 3 */
-@media (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 480px) {
-	input[type="radio"],
-	input[type="checkbox"] {
-		vertical-align: baseline;
-		top: 0;
-	}
-}
-
-/* iPhone 4 */
-@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 480px) {
-	input[type="radio"],
-	input[type="checkbox"] {
-		vertical-align: baseline;
-		top: 0;
-	}
+input[type="radio"] {
+  position: relative;
+  bottom: 2px;
 }
 
 button,

@@ -1,0 +1,43 @@
+/*  --------------------------------------------------
+  Jetpack Defaults
+  ================
+
+  This file can optionally be added after the rest of
+  Jetpack is loaded.
+
+  This is one of only two modules in Jetpack that include
+  *selectors*, the other module being Resetize.
+
+  So if you don't count the CSS reset (I don't), that
+  makes this the only file that will actually affect
+  your page when it's included.
+
+  This file has two purposes:
+
+  1. If you like the basic styles I've set up here,
+     you can just import this and GO.
+
+  2. If you don't like the basic styles I've set up
+     here, don't import this file. Instead you can
+     copy/paste it into your project and then change
+     as desired, or just ignore it and make use of
+     the jetpack mixins without any default styles.
+
+  Have fun, happy coding!
+  --------------------------------------------------  */
+// STYLE INCLUDES
+@include text;
+@include headings;
+@include lists;
+@include preformatting;
+@include tabs-pills;
+@include pagination;
+@include tables;
+
+// JS DEFAULT STYLES
+@include js-styles;
+
+// UBIQUITOUS DEFAULTS
+span.label { @include label; }
+a.button, span.button { @include button; }
+div.message { @include message; }

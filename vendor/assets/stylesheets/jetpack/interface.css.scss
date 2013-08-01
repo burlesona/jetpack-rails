@@ -4,7 +4,7 @@
 
 
 // LABELS
-span.label {
+@mixin label {
 	display: inline-block; padding: 1px 5px; background: $light2; color: $white; @include border-radius(3px);
 	&.success { background: $success2; }
 	&.notice { background: $notice2; color: $dark2; }
@@ -12,7 +12,7 @@ span.label {
 }
 
 // BUTTONS
-a.button, span.button {
+@mixin button {
 	display: inline-block;
 	vertical-align: baseline;
 	cursor: pointer;
@@ -32,25 +32,26 @@ a.button, span.button {
 	&.small { padding: 0px 6px; font-size: 11px; line-height: 1.4; }
 }
 
-@mixin inline_submit { display: inline-block; vertical-align: baseline; } // For submit buttons placed inline beside a one-input form.
-
-div.alert_message {
+// MESSAGES
+@mixin message {
 	@include border-radius(4px); color: $white; padding: 7px 12px; margin-bottom: $baseline; @include box-shadow;
 	&.success { @include buttonize( lighten( $success2, 15% ), $success2); text-shadow: 0px -1px darken( $success2, 15% ); }
 	&.notice { @include buttonize( lighten( $notice2, 15% ), $notice2); color: $dark2; text-shadow: 0px 1px $notice1; }
 	&.error, &.alert { @include buttonize( lighten( $error2, 15% ), $error2); text-shadow: 0px -1px darken( $error2, 15% ); }
-	a.close { @include font( 18px, $sans, 700, 13.5px ); float: right; text-decoration: none; opacity: 0.2; color: $black; text-shadow: 0px 1px $white;
+	a.close { font-size: 18px; font-weight: 700; line-height: 13.5px; float: right; text-decoration: none; opacity: 0.2; color: $black; text-shadow: 0px 1px $white;
 		&:hover { opacity: 0.4; }
 	}
 }
 
-// MODALS
-div.modal_bg { display: none; position: fixed; background: #000; opacity: 0.8; z-index: 1000; top: 0; left: 0; bottom: 0; right: 0; }
-div.modal { display: none; top: 40px; left: 50%; margin-left: -359px; width: 700px; background: $dark2; position: absolute; z-index: 1001; padding: $baseline; }
-div.modal .close_modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
+// STYLES FOR JETPACK JS
+@mixin js-styles {
+	// MODALS
+	div.modal_bg { display: none; position: fixed; background: #000; opacity: 0.8; z-index: 1000; top: 0; left: 0; bottom: 0; right: 0; }
+	div.modal { display: none; top: 40px; left: 50%; margin-left: -359px; width: 700px; background: $dark2; position: absolute; z-index: 1001; padding: $baseline; }
+	div.modal .close_modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
 
-// TIPSY
-.tipsy { font-size: 11px; position: absolute; padding: 5px; z-index: 100000; }
+	// TIPSY
+	.tipsy { font-size: 11px; position: absolute; padding: 5px; z-index: 100000; }
 	.tipsy-inner { background-color: $black; color: $white; max-width: 200px; padding: 5px 8px 4px 8px; text-align: center; @include border-radius(4px); }
 	.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
 	/* Rules to colour arrows */
@@ -67,5 +68,6 @@ div.modal .close_modal { font-size: 22px; line-height: .5; position: absolute; t
 	.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
 	.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
 
-// POPOVERS
-.popover { display: none; }
+	// POPOVERS
+	.popover { display: none; }
+}

@@ -1,6 +1,38 @@
+TODO: V0.9
+> Clear out any remaining ideas from Wunderlist
+> Redo Tabs, Pills, Navigation
+> Redo Tables
+> Review the JS
+
+TODO: V1.0
+> Use git submodules, so style is available apart from plugin
+> Finish sexy docs / demo
+
+
 Changelog:
-0.7.1:
-- Removed jQuery 'live' call and replaced with event on body.
+0.8.0:
+- Significant overhaul to styles:
+  The goal of Jetpack is to be a bootstrap that helps without hurting,
+  meaning it never gets in your way with styles you have to override.
+  While existing versions have done a pretty good job of this, there are
+  still a number of "built-in" styles that get included when you use
+  different components. That's not the best. This release removes all
+  'default' styles and makes sure everything is a mixin or a reset that you
+  include by choice, not by default.
+- Refined header styles to make them procedural based on base font size.
+- Renamed `mixins` module as `core`, to indicate that it's required
+- Removed `font` mixin
+- Removed `opacity`, `transition`, and `background-clip` mixins
+- Moved `respond-to` mixin to core.
+- Added `desktop` option for respond_to
+- Refined typographic styles.
+- Updated Resetize to use more recent bits from Normalize.css
+- Completely redid the Forms module to be all mixins
+- Add a fluid grid option to fractionalize
+- Convert all typography settings to mixins so you can granularly add/remove just the bits you want
+- Changed interface module to all mixins
+- Added "Defaults" module for grabbing the old selectors
+- Changed div.alert_message to div.message in defaults
 
 0.7.0:
 - Added `nav_link_to` helper for creating navigation links.
@@ -8,18 +40,14 @@ Changelog:
 - Added `$responsive` flag to toggle responsive grid throughout an application.
 - Changed Fractionalize to use `respond-to` mixin.
 - Adjusted typography settings to make H1s not so crazy.
-
 0.6.4:
 - Fixed an accidental regression in 0.6.3.
 - Added `respond-to` mixin.
-
 0.6.3:
 - Adjusted fractionalize to use 'device' width instead of 'width' in media queries.
-
 0.6.2:
 - Adjusted resetize style of disabled elements.
 - Added definition of disabled elements to forms stylesheet and matched to link button styles.
-
 0.6.1:
 - Added image max-width to grid containers so images will automatically downscale as needed.
 

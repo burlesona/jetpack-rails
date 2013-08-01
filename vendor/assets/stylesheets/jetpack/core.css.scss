@@ -1,6 +1,18 @@
 // UNIVERSAL MIXINS
 @mixin clearfix { &:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow:hidden; } }
 
+@mixin respond-to($media) {
+	@if $media == desktop {
+		@media screen and (min-width: 1024px) { @content; }
+	}
+	@if $media == tablet {
+		@media screen and (device-width: 768px), screen and (min-width: 768px) and (max-width: 1023px) { @content; }
+	}
+	@else if $media == mobile {
+		@media screen and (device-width: 480px), screen and (max-width: 767px) { @content; }
+	}
+}
+
 @mixin border-radius( $radius: 5px) {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
@@ -11,13 +23,6 @@
 	-webkit-box-shadow: $shadow;
 		 -moz-box-shadow: $shadow;
 					box-shadow: $shadow;
-}
-
-@mixin font( $size: $base_size, $stack: $base_font, $weight: $base_weight, $line_height: $baseline ) {
-	font-size: $size;
-	font-family: $stack;
-	font-weight: $weight;
-	line-height: $line_height;
 }
 
 @mixin gradient($startColor: #555, $endColor: #333) {
@@ -39,22 +44,8 @@
 	border-color: darken($primaryColor, 10%) darken($secondaryColor, 8%) darken($secondaryColor, 20%);
 }
 
-@mixin opacity($opacity: 100) {
-	filter: alpha(opacity=$opacity);
-	-khtml-opacity: $opacity / 100;
-		-moz-opacity: $opacity / 100;
-				 opacity: $opacity / 100;
-}
-
-@mixin transition($transition) {
-	-webkit-transition: $transition;
-		 -moz-transition: $transition;
-					transition: $transition;
-}
-
-// Background clipping
-@mixin background-clip($clip) {
-	-webkit-background-clip: $clip;
-		 -moz-background-clip: $clip;
-					background-clip: $clip;
+@mixin gutter( $side: top, $style: $light-line, $size: $baseline/2 ) {
+	border-#{$side}: $style;
+	margin-#{$side}: $size;
+	padding-#{$side}: $size;
 }
