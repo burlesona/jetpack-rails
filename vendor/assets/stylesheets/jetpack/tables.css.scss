@@ -1,33 +1,123 @@
-/* Tables +
- * Largely taken from Twitter Bootstrap v1.3,
- * with customizations and adaptations to make it more "sassy".
+/* Jetpack Tables
+ * Initially inspired by the style of the tables in Twitter Bootstrap v1.3.
+ * This module provides some convenient mixins for common table types. Most
+ * important is the "simple" style, which is very easy to layer your own styles
+ * on top of. The Whole Table Styles are a good example of how to piece together
+ * your own style groups from standardized components, which will make your
+ * design more consistent (and save you a lot of keystrokes over time).
  * ---------------------------------------------------------------------------------------- */
 
-// TODO: V0.9: Redo this
-@mixin tables {
-	table {
-		width: 100%; margin-bottom: $baseline; padding: 0; border: 1px solid $light1;
-		border-collapse: separate; // Done so we can round those corners!
-		*border-collapse: collapse; /* IE7, collapse table to remove spacing */
-		@include border-radius(4px);
-		th, td { padding: 10px 10px 9px; line-height: $baseline; text-align: left; }
-		th { padding-top: 9px; font-weight: bold; vertical-align: middle; border-bottom: 1px solid $light1; }
-		td { vertical-align: top; }
-		th + th, td + td { border-left: 1px solid $light1; }
-		tr + tr td { border-top: 1px solid $light1; }
-		tbody tr:first-child td:first-child { @include border-radius(4px 0 0 0); }
-		tbody tr:first-child td:last-child { @include border-radius(0 4px 0 0); }
-		tbody tr:last-child td:first-child { @include border-radius(0 0 0 4px); }
-		tbody tr:last-child td:last-child { @include border-radius(0 0 4px 0); }
+// WHOLE TABLE STYLES
+@mixin table-style-simple {
+	@include table-style-base;
+	td { @include table-td-style-base; }
+	th { @include table-th-style-base; }
+	thead { @include table-thead-style-simple; }
+	tbody { @include table-tbody-style-simple; }
+	caption { @include caption-style-simple; }
+}
+
+@mixin table-style-shaded( $c: $light1 ) {
+	@include table-style-base( $c );
+	td { @include table-td-style-base; }
+	th { @include table-th-style-shaded( $c ); }
+	thead { @include table-thead-style-shaded( $c ); }
+	tbody { @include table-tbody-style-shaded( $c ); }
+	caption { @include caption-style-simple; }
+}
+
+@mixin table-style-striped( $c: $light1 ) {
+	@include table-style-base( $c );
+	td { @include table-td-style-base; }
+	th { @include table-th-style-base; }
+	thead { @include table-thead-style-simple( $c ); }
+	tbody { @include table-tbody-style-striped( $c ); }
+	caption { @include caption-style-simple; }
+	@include table-style-striped-no-header-style( $c );
+}
+
+@mixin table-style-base( $c: $light1 ) {
+	$style: 1px solid $c;
+	width: 100%; margin-bottom: $baseline; padding: 0; border: $style;
+	border-collapse: separate; *border-collapse: collapse; //FOR IE 7
+	@include border-radius(4px);
+}
+
+// CELL STYLES
+@mixin table-td-style-base {
+	padding: 10px; line-height: $baseline; text-align: left;
+}
+
+@mixin table-th-style-base {
+	@include table-td-style-base;
+	vertical-align: middle; font-weight: 700;
+}
+
+@mixin table-th-style-shaded( $c: $light1 ) {
+	@include table-th-style-base;
+	background: $c;
+}
+
+// THEAD STYLES
+@mixin table-thead-style-simple( $c: $light1 ) {
+	$style: 1px solid $c;
+	th { border-bottom: $style; border-left: $style; }
+	th:first-child { border-left: none; }
+}
+
+@mixin table-thead-style-shaded( $c: $light1 ) {
+	$style: 1px solid darken($c, 5%);
+	th { border-bottom: $style; border-left: $style; }
+	th:first-child { border-left: none; }
+}
+
+// TBODY STYLES
+@mixin table-tbody-style-base( $c: $light1 ) {
+	$style: 1px solid $c;
+	td { border-left: $style; border-top: $style; }
+	th:first-child, td:first-child { border-left: none; }
+	tr:last-child td:first-child { @include border-radius(0 0 0 4px); }
+	tr:last-child td:last-child { @include border-radius(0 0 4px 0); }
+}
+
+@mixin table-tbody-style-simple( $c: $light1 ) {
+	@include table-tbody-style-base( $c );
+	$style: 1px solid $c;
+	th { border-top: $style; }
+	tr:first-child {
+		td, th { border-top: none; }
 	}
+}
 
+@mixin table-tbody-style-shaded( $c: $light1 ) {
+	@include table-tbody-style-base( $c );
+	$darker: 1px solid darken($c, 5%);
+	th { border-top: $darker; border-left: $darker; }
+	th + td { border-left: $darker; }
+	tr:first-child {
+		td, th { border-top: none; }
+	}
+}
 
-	// ZEBRA-STRIPING
-	// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-	table.striped {
-		tbody {
-			tr:nth-child(odd) td { background-color: $light1; }
-			tr:hover td { background-color: darken( $light1, 5% ); }
+@mixin table-tbody-style-striped( $c: $light1 ) {
+	@include table-tbody-style-simple( $c );
+	tr:nth-child(odd) {
+		th, td { background: lighten($c, 5%); }
+	}
+}
+
+@mixin table-style-striped-no-header-style( $c: $light1 ) {
+	caption + tbody {
+		tr:nth-child(odd) {
+			th, td { background: none; }
+		}
+		tr:nth-child(even) {
+			th, td { background: lighten($c, 5%); }
 		}
 	}
+}
+
+// CAPTIONS
+@mixin caption-style-simple {
+	font-weight: 700; font-size: $base_size - 1px;
 }

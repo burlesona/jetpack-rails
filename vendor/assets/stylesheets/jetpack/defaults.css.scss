@@ -25,19 +25,26 @@
 
   Have fun, happy coding!
   --------------------------------------------------  */
-// STYLE INCLUDES
+
+// BULK INCLUDES
 @include text;
 @include headings;
 @include lists;
 @include preformatting;
 @include tabs-pills;
 @include pagination;
-@include tables;
 
 // JS DEFAULT STYLES
 @include js-styles;
 
 // UBIQUITOUS DEFAULTS
+
+// INTERFACE ELEMENTS
 span.label { @include label; }
 a.button, span.button { @include button; }
 div.message { @include message; }
+
+// TABLE STYLES
+table.simple { @include table-style-simple; }
+table.shaded { @include table-style-shaded; }
+table.striped { @include table-style-striped; }

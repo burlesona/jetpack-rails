@@ -1,7 +1,7 @@
 // TODO - Add full comments here
 // COLOR DEFINITIONS
 $light1: #EAEBEC;
-$light2: #9A9FA0;
+$light2: #C9CACB;
 
 $dark1: #3C3E40;
 $dark2: #262728;
@@ -26,7 +26,8 @@ $black: #000000;
 
 // LINE STYLES
 $light-line: 1px solid $light1;
-$dark-link: 1px solid $dark1;
+$medium-line: 1px solid $light2;
+$dark-line: 1px solid $dark1;
 
 // TYPOGRAPHY DEFINITIONS
 $sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;

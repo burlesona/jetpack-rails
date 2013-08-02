@@ -10,6 +10,15 @@ TODO: V1.0
 
 
 Changelog:
+0.8.1:
+- Completely revised the tables library to be based on stack of mixins
+- Changed default $light2 to a ligher color.
+- Added $medium-line style.
+- Added $dark-line style (it was present but had a typo and was unused in 0.8.0)
+- Note on the line styles: these are not heavily used, I'm experimenting with
+  the usefulness of them right now. They may be removed before 1.0, but I think
+  they're kind of a good idea.
+
 0.8.0:
 - Significant overhaul to styles:
   The goal of Jetpack is to be a bootstrap that helps without hurting,
@@ -33,6 +42,7 @@ Changelog:
 - Changed interface module to all mixins
 - Added "Defaults" module for grabbing the old selectors
 - Changed div.alert_message to div.message in defaults
+- Added $light-line style
 
 0.7.0:
 - Added `nav_link_to` helper for creating navigation links.
