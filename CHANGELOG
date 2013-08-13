@@ -7,8 +7,11 @@ TODO: V1.0
 > Use git submodules, so style is available apart from plugin
 > Finish sexy docs / demo
 
-
 Changelog:
+0.8.3:
+- Remove select_arrow.gif from select in Resetize.
+- Remove extranous comment.
+
 0.8.2:
 - Changed class "alert_message" to "alert-message" in flash message helper.
   Trying to me more consistent in using hypenation in HTML/CSS, since that's
