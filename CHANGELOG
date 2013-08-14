@@ -1,18 +1,23 @@
-TODO: V0.9
-> Clear out any remaining ideas from Wunderlist
-> Redo Tabs, Pills, Navigation
+TODO: V0.10.0
 > Review the JS
+> Redo js-styles module to be specific to each js component
+> Create a "defaults.js" that works the same way as defaults.css
+> ADD PILLS / TABS to defaults.js
+
+TODO: V0.11.0
+> Clear out any remaining ideas from Wunderlist
+
 
 TODO: V1.0
 > Use git submodules, so style is available apart from plugin
 > Finish sexy docs / demo
 
 Changelog:
-0.9.0: IN PROGRESS
+0.9.0:
 - Redo Tabs
 - Redo Pills
 - Redo Pagination
-- Add Color Demo
+- The above components now follow the pattern of the new Tables and Forms modules.
 
 0.8.3:
 - Remove select_arrow.gif from select in Resetize.
