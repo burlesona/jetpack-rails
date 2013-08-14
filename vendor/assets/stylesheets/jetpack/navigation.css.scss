@@ -1,71 +1,105 @@
-/* Navigation +
- * Based on Twitter Bootstrap
- * ---------------------------------------------------------------------------------------- */
+// Jetpack Navigation
 
- // TODO - V0.9: redo tabs, pills.
- @mixin tabs-pills {
-	.tab_container div, .pill_container div {
-		display: none;
-		&.active { display: block; }
-	}
-
-	// Common tab and pill styles
-	.tabs, .pills { margin: 0 0 20px; padding: 0; @include clearfix();
-		li {
-			display: inline;
-			a { float: left; width: auto; }
-		}
-	}
-
-	// Basic Tabs
+@mixin tab-style-base {
+	.tab-container {
+		@include clearfix;
+	  div {
+		  display: none;
+		  &.active { display: block; }
+	  }
+	 }
 	.tabs {
-		width: 100%; border-bottom: 1px solid $light2;
-		li {
-			a {
-				margin: 0 0 -1px 2px; padding: 0 15px; line-height: ($baseline * 2) - 1; @include border-radius(3px 3px 0 0);
-				&:hover { background: $light1; border-bottom: 1px solid $light2; color: $dark2; text-decoration: none; }
-				&.active { background: $color1; padding: 0 14px; border: 1px solid $light2; border-bottom: 0; color: $dark1; text-decoration: none; }
-			}
+		margin: 0; padding: 0; list-style: none;
+		li { display: inline; }
+		li a {
+			display: inline-block; margin-right: $baseline/2;
+			color: $color2; text-decoration: none; font-weight: 700;
+			&.active { color: $dark1; }
 		}
 	}
+}
 
-	// Basic pill nav
-	.pills {
-		li {
-			a {
-				margin: 5px 3px 5px 0; padding: 0 15px; text-shadow: 0 1px 1px $white; line-height: 30px; @include border-radius(15px);
-				&:hover { background: $light1; color: $dark2; text-decoration: none; text-shadow: 0 1px $white; }
-				&.active { background: $color1; color: $dark2; text-shadow: 0 1px lighten( $color1, 15% ); text-decoration: none; }
-			}
+@mixin tab-style-simple {
+	@include tab-style-base;
+	.tab-container {
+		 border: 1px solid $light1; padding: $baseline/2;
+	}
+	.tabs {
+		width: 100%;
+		li a {
+			border: 1px solid $light1; border-bottom: none;
+			padding: $baseline/4 $baseline/2; border-radius: $baseline/2 $baseline/2 0 0;
+			background: lighten($light1, 5%);
+			&.active { background: $white; border-bottom: 1px solid $white; margin-bottom: -1px; }
 		}
+	}
+}
+
+@mixin pill-style-base {
+	.pill-container { @include clearfix;
+		div { display: none;
+			&.active { display: block; }
+		}
+	}
+	.pills {
+		margin: 0; padding: 0; list-style: none;
+		li { display: inline; }
+		li a {
+			display: inline-block; margin-right: $baseline/2;
+			color: $color2; text-decoration: none; font-weight: 700;
+			&.active { color: $dark1; }
+		}
+	}
+}
+
+@mixin pill-style-simple {
+	@include pill-style-base;
+	.pills {
+		margin-bottom: $baseline/2;
+		li a {
+			border: 1px solid $light1; padding: $baseline/4 $baseline/2;
+			@include border-radius($baseline); background: lighten($light1, 5%);
+			&.active { background: $white; }
+		}
+	}
+}
+
+@mixin pagination-style-simple {
+	ul { list-style: none; margin: 0; padding: 0; font-size: $base_size - 2px; font-weight: 700; }
+	li { display: inline-block; }
+	a {
+		display: inline-block; padding: $baseline/6 $baseline/2; margin-right: $baseline/4;
+		background: lighten($light1,5%); color: $color1; text-decoration: none;
+		border: 1px solid $light1; @include border-radius($baseline/2);
+		&.current { background: $color1; border-color: $color2; color: $white; }
 	}
 }
 
 // TODO - V0.9: redo pagination
-@mixin pagination {
-	.pagination { height: $baseline * 2; margin: $baseline 0;
-		// List Style Pagination
-		ul {
-			float: left; margin: 0; border: 1px solid $light2; @include border-radius(3px); @include box-shadow(0 1px 2px rgba(0,0,0,.05)); clear: both;
-			li {
-				display: inline;
-				a { float: left; padding: 0 14px; line-height: ($baseline * 2) - 2; border-right: 1px solid; border-right-color: $light2; text-decoration: none; }
-				a:hover, &.active a { background-color: $color1; color: $white; }
-				&.disabled a, &.disabled a:hover { background-color: transparent; color: $light2; }
-				&.next a { border: 0; }
-			}
-		}
-	}
-
-	// Kaminari Style Pagination
-	nav.pagination {
-		float: left; clear: both; height: $baseline * 2; margin: $baseline 0;
-		border: 1px solid $light2; @include border-radius(3px); @include box-shadow(0 1px 2px rgba(0,0,0,.05));
-		span { display: block; float: left; border-left: 1px solid $light2; line-height: ($baseline * 2); padding: 0 14px;
-			&:hover { background-color: $light1; }
-			&.current {background-color: $color1; color: $white; }
-			&:first-child { border: 0; }
-			a { text-decoration: none; color: inherit; }
-		}
-	}
-}
+//@mixin pagination {
+//	.pagination { height: $baseline * 2; margin: $baseline 0;
+//		// List Style Pagination
+//		ul {
+//			float: left; margin: 0; border: 1px solid $light2; @include border-radius(3px); @include box-shadow(0 1px 2px rgba(0,0,0,.05)); clear: both;
+//			li {
+//				display: inline;
+//				a { float: left; padding: 0 14px; line-height: ($baseline * 2) - 2; border-right: 1px solid; border-right-color: $light2; text-decoration: none; }
+//				a:hover, &.active a { background-color: $color1; color: $white; }
+//				&.disabled a, &.disabled a:hover { background-color: transparent; color: $light2; }
+//				&.next a { border: 0; }
+//			}
+//		}
+//	}
+//
+//	// Kaminari Style Pagination
+//	nav.pagination {
+//		float: left; clear: both; height: $baseline * 2; margin: $baseline 0;
+//		border: 1px solid $light2; @include border-radius(3px); @include box-shadow(0 1px 2px rgba(0,0,0,.05));
+//		span { display: block; float: left; border-left: 1px solid $light2; line-height: ($baseline * 2); padding: 0 14px;
+//			&:hover { background-color: $light1; }
+//			&.current {background-color: $color1; color: $white; }
+//			&:first-child { border: 0; }
+//			a { text-decoration: none; color: inherit; }
+//		}
+//	}
+//}
