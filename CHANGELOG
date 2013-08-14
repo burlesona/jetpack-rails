@@ -8,6 +8,12 @@ TODO: V1.0
 > Finish sexy docs / demo
 
 Changelog:
+0.9.0: IN PROGRESS
+- Redo Tabs
+- Redo Pills
+- Redo Pagination
+- Add Color Demo
+
 0.8.3:
 - Remove select_arrow.gif from select in Resetize.
 - Remove extranous comment.

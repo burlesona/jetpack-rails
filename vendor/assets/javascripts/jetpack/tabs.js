@@ -16,29 +16,38 @@
 (function($) {
 	$.fn.tabs = $.fn.pills = function() {
 		var selector = $(this);
-		
+
+		// Call on each occurance
 		selector.each( function(i) {
+
 			//Get all tabs
-			var tab = $(this).find('> li > a');
-			tab.click(function(e) {
-	
+			var tabs = $(this).find('> li > a');
+
+
+			tabs.click(function(e) {
+
 				//Get Location of tab's content
 				var contentLocation = $(this).attr('href');
-	
+
 				//Let go if not a hashed one
 				if(contentLocation.charAt(0)=="#") {
-	
+
 					e.preventDefault();
-	
+
 					//Make Tab Active
-					tab.removeClass('active');
+					tabs.removeClass('active');
 					$(this).addClass('active');
-	
+
 					//Show Tab Content & add active class
-					$(contentLocation).show().addClass('active').siblings().hide().removeClass('active');
-	
+					$(contentLocation).addClass('active').siblings().removeClass('active');
+
 				}
 			});
+
+			tabs.first().addClass('active')
+			var firstTab = tabs.first().attr('href');
+			$(firstTab).addClass('active').siblings().removeClass('active');
+
 		});
 	}
 })(jQuery);

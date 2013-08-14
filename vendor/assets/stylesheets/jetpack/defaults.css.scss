@@ -26,13 +26,11 @@
   Have fun, happy coding!
   --------------------------------------------------  */
 
-// BULK INCLUDES
+// Typographic Styles
 @include text;
 @include headings;
 @include lists;
 @include preformatting;
-@include tabs-pills;
-@include pagination;
 
 // JS DEFAULT STYLES
 @include js-styles;
@@ -48,3 +46,8 @@ div.message { @include message; }
 table.simple { @include table-style-simple; }
 table.shaded { @include table-style-shaded; }
 table.striped { @include table-style-striped; }
+
+// NAVIGATION
+div.tab-wrapper { @include tab-style-simple; }
+div.pill-wrapper { @include pill-style-simple; }
+
