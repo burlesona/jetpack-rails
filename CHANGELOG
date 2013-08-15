@@ -1,4 +1,5 @@
 TODO: V0.10.0
+> Add LICENSE to fix warning
 > Review the JS
 > Redo js-styles module to be specific to each js component
 > Create a "defaults.js" that works the same way as defaults.css
@@ -13,6 +14,15 @@ TODO: V1.0
 > Finish sexy docs / demo
 
 Changelog:
+0.9.1:
+- Use available version number...
+  Way back in the day, before I learned about semantic versioning, I made an initial
+  version of this project. I thought it was sooo close to production ready (haha) that
+  I optimistically numbered it "Version 0.9", thinking that 1.0 would be ready within
+  a couple commits. Epic fail, it was nowhere near that good yet. Unfortunately I pushed
+  that early version to rubygems, which means version 0.9.0 is not available for me to
+  use now. Therefore, the first release in the 0.9.x series will be 0.9.1. Fun times.
+
 0.9.0:
 - Redo Tabs
 - Redo Pills
