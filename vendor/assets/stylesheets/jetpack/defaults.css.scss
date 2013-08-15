@@ -44,8 +44,9 @@ a { color: $color1;
 // INTERFACE ELEMENTS
 span.label { @include label; }
 a.button, span.button { @include button; }
-div.message { @include message; }
-div.alert-message { @include message; }
+// don't include until color scheme is fixed
+//div.message { @include message; }
+//div.alert-message { @include message; }
 
 // TABLE STYLES
 table.simple { @include table-style-simple; }
