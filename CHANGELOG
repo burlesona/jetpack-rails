@@ -18,6 +18,7 @@ Changelog:
 - Redo Pills
 - Redo Pagination
 - The above components now follow the pattern of the new Tables and Forms modules.
+- Revised default color scheme
 
 0.8.3:
 - Remove select_arrow.gif from select in Resetize.

@@ -1,5 +1,36 @@
 // Jetpack Navigation
 
+@mixin nav-style-base {
+	ul { margin: 0; padding: 0; list-style: none; }
+	.title { font-weight: 700; }
+	a { text-decoration: none; color: inherit;
+		&:visited { color: inherit; }
+	}
+}
+
+@mixin nav-style-simple {
+	@include nav-style-base;
+
+	background: $dark1; @include box-shadow(0px 2px 2px $light2);
+	ul {
+		color: $white; text-shadow: 0px -1px rgba($black,0.5);
+		@include container;
+	}
+	.title { display: inline-block; margin-right: $baseline; }
+	li {
+		display: inline-block;
+		&:first-child { margin-left: -$baseline; }
+		a {
+			display: block; padding: $baseline/2 $baseline;
+			&:hover { background: $color1; }
+		}
+		@include respond-to(mobile) {
+			display: block; margin-left: -$baseline;
+		}
+	}
+}
+
+
 @mixin tab-style-base {
 	.tab-container {
 		@include clearfix;
