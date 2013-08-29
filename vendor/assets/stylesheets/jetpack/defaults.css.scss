@@ -32,14 +32,10 @@
 @include lists;
 @include preformatting;
 
-// JS DEFAULT STYLES
-@include js-styles;
-
 // UBIQUITOUS DEFAULTS
 a { color: $color1;
   &:visited { color: $color2; }
 }
-
 
 // INTERFACE ELEMENTS
 span.label { @include label; }
