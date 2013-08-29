@@ -12,8 +12,8 @@ TODO: V0.9.4
 
 TODO: V0.10.0
 > Add LICENSE to fix warning
+> Change the helpers to be optional (add to application helper using include Jetpack::Helpers)
 > Review the JS
-> Redo js-styles module to be specific to each js component
 > Create a "defaults.js" that works the same way as defaults.css
 > ADD PILLS / TABS to defaults.js
 
