@@ -43,14 +43,15 @@
 	}
 }
 
-// STYLES FOR JETPACK JS
-@mixin js-styles {
-	// MODALS
-	div.modal_bg { display: none; position: fixed; background: #000; opacity: 0.8; z-index: 1000; top: 0; left: 0; bottom: 0; right: 0; }
-	div.modal { display: none; top: 40px; left: 50%; margin-left: -359px; width: 700px; background: $dark2; position: absolute; z-index: 1001; padding: $baseline; }
-	div.modal .close_modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
+// MODALS
+@mixin modal {
+	.modal-bg { @include full-screen; background: $dark1; opacity: 0.8; }
+	.modal { display: none; top: 10%; left: 30%; right: 30%; background: $dark2; position: absolute; z-index: 1001; padding: $baseline; }
+	.modal .close-modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
+}
 
-	// TIPSY
+// TIPSY
+@mixin tipsy {
 	.tipsy { font-size: 11px; position: absolute; padding: 5px; z-index: 100000; }
 	.tipsy-inner { background-color: $black; color: $white; max-width: 200px; padding: 5px 8px 4px 8px; text-align: center; @include border-radius(4px); }
 	.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
@@ -67,7 +68,5 @@
 	.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
 	.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
 	.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
-
-	// POPOVERS
-	.popover { display: none; }
+	.popover { display: none; } // For Jetpack Tipsy Popover Function
 }

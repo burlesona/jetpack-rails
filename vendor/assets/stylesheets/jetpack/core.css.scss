@@ -49,3 +49,13 @@
 	margin-#{$side}: $size;
 	padding-#{$side}: $size;
 }
+
+// Fill the whole screen no matter what
+@mixin full-screen( $z: 1000 ) {
+	position: fixed; z-index: $z; top: 0; left: 0; bottom: 0; right: 0;
+}
+
+// Fill an entire relative positioned parent container
+@mixin fill-container {
+	position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+}

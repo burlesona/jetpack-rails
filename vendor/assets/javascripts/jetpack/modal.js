@@ -17,7 +17,7 @@ $(function(){
 		var modalBg = $('.modal_bg');
 
 		if ( modalBg.length == 0 ) {
-			modalBg = $('<div class="modal_bg"></div>').insertAfter(modal);
+			modalBg = $('<div class="modal-bg"></div>').insertAfter(modal);
 		}
 
 		if( modal.not(':visible') ) {
@@ -46,7 +46,7 @@ $(function(){
 			}
 		});
 
-		$('a.close_modal').click( function(event) {
+		$('.close-modal').click( function(event) {
 			event.preventDefault();
 			closeModal();
 		});

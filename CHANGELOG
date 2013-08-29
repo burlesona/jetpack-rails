@@ -14,6 +14,11 @@ TODO: V1.0
 > Finish sexy docs / demo
 
 Changelog:
+0.9.4:
+- Change modal to use hyphenation, give it its own mixin.
+- Remove js-styles mixin and replace with modal and tipsy mixins.
+- Add full-screen and fill-container mixins to core.
+
 0.9.3:
 - Sigh -- working too fast. Don't include alert message styles in defaults
   until I have a chance go back and redo the way those are generated. Right now
