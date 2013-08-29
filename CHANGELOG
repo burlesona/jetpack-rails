@@ -3,6 +3,8 @@ ROADMAP
 =======
 
 TODO: V0.9.4
+> Fixup buttons / forms so that a button next to a form element is the same height
+> Fixup <button> <input type="submit"> and <a class="button"> so they all match
 > Fixup the styles and method of inclusion on alert messages.
   Right now they don't look good with the default color scheme.
   They really should be more flexible so that with any set of colors
