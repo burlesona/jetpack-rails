@@ -1,3 +1,15 @@
+=======
+ROADMAP
+=======
+
+TODO: V0.9.4
+> Fixup the styles and method of inclusion on alert messages.
+  Right now they don't look good with the default color scheme.
+  They really should be more flexible so that with any set of colors
+  they look alright.
+> Add demo/documentation page for Core
+> Add demo/documentation page for Defaults
+
 TODO: V0.10.0
 > Add LICENSE to fix warning
 > Review the JS
@@ -7,14 +19,17 @@ TODO: V0.10.0
 
 TODO: V0.11.0
 > Clear out any remaining ideas from Wunderlist
-
+> Redo the home page and readme
 
 TODO: V1.0
 > Use git submodules, so style is available apart from plugin
 > Finish sexy docs / demo
 
-Changelog:
-0.9.4:
+
+==========
+CHANGELOG:
+==========
+0.9.4: IN PROGRESS
 - Change modal to use hyphenation, give it its own mixin.
 - Remove js-styles mixin and replace with modal and tipsy mixins.
 - Add full-screen and fill-container mixins to core.
@@ -167,7 +182,7 @@ Changelog:
 
 0.2.2:
 - I disagree with Twitter Boostrap (the main inspiration for the typography styles). List
-	items should definitely not be gray by default. <li>'s will now inherit their color.
+  items should definitely not be gray by default. <li>'s will now inherit their color.
 
 0.2.1:
 - Another minor tweak to danger button style.
