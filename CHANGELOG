@@ -2,7 +2,7 @@
 ROADMAP
 =======
 
-TODO: V0.10.1
+TODO: V0.10.2
 > Finish demo/documentation page for Core
 > Finish demo/documentation page for Interface
 > Add demo/documentation page for Defaults
@@ -28,6 +28,10 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
+0.10.1:
+- Add "tint" and "shade" functions from Thoughtbot's "Bourbon."
+- Use tint/shade in Buttonize mixin to avoid bright shiny color highlights
+
 0.10.0:
 - Change modal to use hyphenation, give it its own mixin.
 - Remove js-styles mixin and replace with modal and tipsy mixins.

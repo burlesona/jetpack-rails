@@ -1,6 +1,16 @@
 // UNIVERSAL MIXINS
 @mixin clearfix { &:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow:hidden; } }
 
+// Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
 @mixin respond-to($media) {
 	@if $media == desktop {
 		@media screen and (min-width: 1024px) { @content; }
@@ -39,9 +49,9 @@
 
 @mixin buttonize($primaryColor, $secondaryColor) {
 	@include gradient($primaryColor, $secondaryColor);
-	text-shadow: 0 1px 0 lighten($secondaryColor, 15%);
+	text-shadow: 0 1px 0 tint($secondaryColor, 15%);
 	border: 1px solid;
-	border-color: darken($primaryColor, 10%) darken($secondaryColor, 8%) darken($secondaryColor, 20%);
+	border-color: shade($primaryColor, 10%) shade($secondaryColor, 8%) shade($secondaryColor, 20%);
 }
 
 @mixin gutter( $side: top, $style: $light-line, $size: $baseline/2 ) {
