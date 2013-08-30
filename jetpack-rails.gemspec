@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.description = %q{A sweet boostrap mashup for Rails applications.
   The philosophy is pretty simple, it should make building Rails apps go a lot faster.
   The library prefers modularity over rigidity and mixins over defintions. Check out the github readme for more.}
+  s.license = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
   # s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
