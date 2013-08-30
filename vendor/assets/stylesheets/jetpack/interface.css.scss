@@ -14,7 +14,7 @@
 // BUTTONS
 @mixin button {
 	display: inline-block;
-	vertical-align: baseline;
+	vertical-align: middle;
 	cursor: pointer;
 	@include box-shadow( 0px 1px 1px rgba(0,0,0,0.15) );
 	@include border-radius(4px);
@@ -23,6 +23,7 @@
 	text-decoration: none;
 	color: $dark2;
 	padding: 3px 10px;
+	margin-right: 4px;
 	width: auto;
 	&:active, &.active { @include buttonize( $light1, $white ); @include box-shadow( none ); }
 	&.disabled { @include buttonize( $light1, $light1); color: $light2; @include box-shadow( none ); }
@@ -35,9 +36,10 @@
 // MESSAGES
 @mixin message {
 	@include border-radius(4px); color: $white; padding: 7px 12px; margin-bottom: $baseline; @include box-shadow;
-	&.success { @include buttonize( lighten( $success2, 15% ), $success2); text-shadow: 0px -1px darken( $success2, 15% ); }
-	&.notice { @include buttonize( lighten( $notice2, 15% ), $notice2); color: $dark2; text-shadow: 0px 1px $notice1; }
-	&.error, &.alert { @include buttonize( lighten( $error2, 15% ), $error2); text-shadow: 0px -1px darken( $error2, 15% ); }
+	@include gradient( lighten($light2, 5%), $light2 ); color: $dark2; text-shadow: 0px 1px $light1;
+	&.success { @include gradient( lighten($success2, 5%), $success2); color: $white; text-shadow: 0px -1px darken( $success2, 15% ); }
+	&.notice { @include gradient( lighten($notice2, 5%), $notice2); color: $dark2; text-shadow: 0px 1px $notice1; }
+	&.error, &.alert { @include gradient( lighten($error2, 5%), $error2); color: $white; text-shadow: 0px -1px darken( $error2, 15% ); }
 	a.close { font-size: 18px; font-weight: 700; line-height: 13.5px; float: right; text-decoration: none; opacity: 0.2; color: $black; text-shadow: 0px 1px $white;
 		&:hover { opacity: 0.4; }
 	}

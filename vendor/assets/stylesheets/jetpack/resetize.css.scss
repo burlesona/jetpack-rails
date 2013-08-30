@@ -315,6 +315,7 @@ input[type="button"] {
 	outline: 0;
 	overflow: visible;
 	padding: 3px 10px;
+  margin-right: 4px;
 	text-shadow: #fff 0 1px 1px;
 	width: auto;
 	/* IE7 */
@@ -444,6 +445,9 @@ select[multiple] {
 /* Tweaks for Safari + Chrome. */
 @media (-webkit-min-device-pixel-ratio: 0) {
 	select {
+    background-image: image-url('select-arrow.gif');
+    background-repeat: no-repeat;
+    background-position: right center;
 		padding-right: 20px;
 	}
 
