@@ -12,6 +12,48 @@
 }
 
 // BUTTONS
+@mixin button-bg($buttonColor,$top,$bottom) {
+	@include gradient($top, $bottom);
+	@include border-radius(4px);
+	@include box-shadow(0px 1px shade($buttonColor,30%));
+	border: 1px solid; border-color: shade($buttonColor, 5%) shade($buttonColor, 10%) shade($buttonColor, 20%);
+}
+
+@mixin button-text($buttonColor,$textColor) {
+	color: $textColor; text-decoration: none;
+	@if lightness($textColor) > lightness(#888) {
+		text-shadow: 0 -1px shade($buttonColor, 15%);
+	} @else {
+		text-shadow: 0 1px tint($buttonColor, 25%);
+	}
+}
+
+
+@mixin buttonize-2($buttonColor:$light1,$textColor:$dark2) {
+	@include button-bg($buttonColor,lighten($buttonColor,5%),darken($buttonColor,10%));
+	@include button-text($buttonColor,$textColor);
+	display: inline-block; vertical-align: middle; cursor: pointer;
+	padding: 0 10px; margin-right: 4px;
+	font-weight: 700; font-size: 12px; line-height: $baseline;
+	&:active, &.active {
+		@include button-bg($buttonColor,lighten($buttonColor,3%),darken($buttonColor,5%));
+		@include box-shadow(none);
+	}
+	&:disabled, &.disabled {
+		@include button-bg($buttonColor,lighten($buttonColor,3%),darken($buttonColor,5%));
+		@include box-shadow(none);
+		@if lightness($textColor) > lightness($buttonColor) {
+			@include button-text($buttonColor,tint($buttonColor,60%));
+		} @else {
+			@include button-text($buttonColor,tint($textColor,40%));
+		}
+	}
+	&.small {
+		padding: 0px 7px; font-size: 11px; line-height: $baseline - 6px;
+	}
+}
+
+
 @mixin button {
 	display: inline-block;
 	vertical-align: middle;

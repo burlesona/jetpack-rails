@@ -28,6 +28,10 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
+0.10.2:
+- Overhaul Interface Library
+- Redo Button Style Rules
+
 0.10.1:
 - Add "tint" and "shade" functions from Thoughtbot's "Bourbon."
 - Use tint/shade in Buttonize mixin to avoid bright shiny color highlights
