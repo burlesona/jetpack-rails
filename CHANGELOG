@@ -28,9 +28,13 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
-0.10.2:
-- Overhaul Interface Library
-- Redo Button Style Rules
+0.11.0:
+- Overhaul Interface Library. Redo button, label, message mixins.
+- Add highlight, highlight-with-border, inset-text to Core.
+- Remove buttonize from Core (use combinations of above mixins instead).
+- Change flash_messages helper to generate "flash-message" divs instead of "alert-message" divs.
+- Tweak preset success, notice, error color2's to be a little brighter. Since these are no longer
+  directly used for text, it's easier to get a balance of the right
 
 0.10.1:
 - Add "tint" and "shade" functions from Thoughtbot's "Bourbon."

@@ -38,11 +38,23 @@ a { color: $color1;
 }
 
 // INTERFACE ELEMENTS
-span.label { @include label; }
-a.button, span.button { @include button; }
-// don't include until color scheme is fixed
-//div.message { @include message; }
-//div.alert-message { @include message; }
+span.label {
+  @include label;
+  &.success { @include label($success2,$white); }
+  &.notice { @include label($notice2,$white); }
+  &.error { @include label($error2,$white); }
+}
+a.button, span.button {
+  @include button;
+  &.primary { @include button($color1,$white); }
+  &.danger { @include button($error2,$white); }
+}
+div.flash-message {
+  @include message;
+  &.success { @include message($success1,darken($success2,20%)); }
+  &.notice { @include message($notice1,darken($notice2,25%)); }
+  &.error, &.alert { @include message($error1,darken($error2,10%)); }
+}
 
 // TABLE STYLES
 table.simple { @include table-style-simple; }

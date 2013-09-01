@@ -26,7 +26,7 @@ module Jetpack
 			str = ""
 			flash.each do |type, msg|
 				type == :alert ? persist = true : persist = false
-				str += content_tag :div, msg, :class => ['alert-message', type], :data => { :persist => persist }
+				str += content_tag :div, msg, :class => ['flash-message', type], :data => { :persist => persist }
 			end
 			str.html_safe
 		end

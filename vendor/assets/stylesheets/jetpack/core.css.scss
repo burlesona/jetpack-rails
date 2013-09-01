@@ -1,5 +1,46 @@
-// UNIVERSAL MIXINS
+/*--------------------------------------------------
+	Jetpack/Core
+
+	Useful utility functions that can be (and are) used
+	in other modules. These functions are the only
+	"dependencies" for the other jetpack components, meaning
+	this is the only file that *must* be included in a project.
+
+	If you wanted to, though, you could override any of these
+	mixins before importing the other components, or you could
+	make a copy of this file and modify it, and include your
+	own version instead.
+	--------------------------------------------------	*/
+
+/* -- Layout Mixins -- */
+// Good Ole' Clearfix
 @mixin clearfix { &:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow:hidden; } }
+
+// Add responsive styles for different screen sizes
+@mixin respond-to($media) {
+	@if $media == desktop {
+		@media screen and (min-width: 1024px) { @content; }
+	}
+	@if $media == tablet {
+		@media screen and (device-width: 768px), screen and (min-width: 768px) and (max-width: 1023px) { @content; }
+	}
+	@else if $media == mobile {
+		@media screen and (device-width: 480px), screen and (max-width: 767px) { @content; }
+	}
+}
+
+// Fill the whole screen no matter what
+@mixin full-screen( $z: 1000 ) {
+	position: fixed; z-index: $z; top: 0; left: 0; bottom: 0; right: 0;
+}
+
+// Fill an entire relative positioned parent container
+@mixin fill-container {
+	position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+/* -- Presentational Mixins -- */
 
 // Add percentage of white to a color
 @function tint($color, $percent){
@@ -11,16 +52,38 @@
   @return mix(black, $color, $percent);
 }
 
-@mixin respond-to($media) {
-	@if $media == desktop {
-		@media screen and (min-width: 1024px) { @content; }
+// Create text with a shadow that makes it look letter-pressed
+@mixin inset-text($color,$background) {
+	color: $color;
+	@if lightness($color) > lightness(#888) {
+		text-shadow: 0 -1px shade($background, 15%);
+	} @else {
+		text-shadow: 0 1px tint($background, 25%);
 	}
-	@if $media == tablet {
-		@media screen and (device-width: 768px), screen and (min-width: 768px) and (max-width: 1023px) { @content; }
-	}
-	@else if $media == mobile {
-		@media screen and (device-width: 480px), screen and (max-width: 767px) { @content; }
-	}
+}
+
+// Create a smooth gradient from the top to the bottom color
+@mixin gradient($startColor: #555, $endColor: #333) {
+	background-color: $endColor;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
+	background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+	background-image: linear-gradient(top, $startColor, $endColor); // The standard
+}
+
+// Given a color, create a background gradient that gives a "highlight" effect
+@mixin highlight($color,$lightness,$darkness) {
+	@include gradient(lighten($color,$lightness),darken($color,$darkness));
+}
+
+// Create a "highlight" background with a similarly shaded border
+@mixin highlight-with-border($color,$lightness,$darkness,$style: 1px solid) {
+	@include highlight($color,$lightness,$darkness);
+	border: $style; border-color: shade($color, $darkness/2) shade($color, $darkness) shade($color, $darkness*2);
 }
 
 @mixin border-radius( $radius: $baseline/4) {
@@ -35,37 +98,9 @@
 					box-shadow: $shadow;
 }
 
-@mixin gradient($startColor: #555, $endColor: #333) {
-	background-color: $endColor;
-	background-repeat: repeat-x;
-	background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
-	background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
-	background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
-	background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-	background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
-	background-image: linear-gradient(top, $startColor, $endColor); // The standard
-}
-
-@mixin buttonize($primaryColor, $secondaryColor) {
-	@include gradient($primaryColor, $secondaryColor);
-	text-shadow: 0 1px 0 tint($secondaryColor, 15%);
-	border: 1px solid;
-	border-color: shade($primaryColor, 10%) shade($secondaryColor, 8%) shade($secondaryColor, 20%);
-}
-
 @mixin gutter( $side: top, $style: $light-line, $size: $baseline/2 ) {
 	border-#{$side}: $style;
 	margin-#{$side}: $size;
 	padding-#{$side}: $size;
 }
 
-// Fill the whole screen no matter what
-@mixin full-screen( $z: 1000 ) {
-	position: fixed; z-index: $z; top: 0; left: 0; bottom: 0; right: 0;
-}
-
-// Fill an entire relative positioned parent container
-@mixin fill-container {
-	position: absolute; top: 0; left: 0; bottom: 0; right: 0;
-}
