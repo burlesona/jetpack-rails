@@ -1,15 +1,11 @@
 =======
 ROADMAP
 =======
-
-TODO: V0.10.2
-> Finish demo/documentation page for Core
-> Finish demo/documentation page for Interface
-> Add demo/documentation page for Defaults
+TODO: V0.11.1
 > Fixup the fluid grid container / fixed grid presets
 
-TODO: V0.11.0
-> Add LICENSE to fix warning
+TODO: V0.12.0
+> Finish demo/documentation for Modals and Tipsy
 > Change the helpers to be optional (add to application helper using include Jetpack::Helpers)
 > Review the JS
 > Create a "defaults.js" that works the same way as defaults.css
@@ -17,7 +13,7 @@ TODO: V0.11.0
 > Add demo/documentation page for helpers
 > Add demo/documentation page for javascripts
 
-TODO: V0.12.0
+TODO: V0.13.0
 > Clear out any remaining ideas from Wunderlist
 > Redo the home page and readme
 
@@ -35,6 +31,7 @@ CHANGELOG:
 - Change flash_messages helper to generate "flash-message" divs instead of "alert-message" divs.
 - Tweak preset success, notice, error color2's to be a little brighter. Since these are no longer
   directly used for text, it's easier to get a balance of the right
+- Update table style base to not define a border, just the width etc.
 
 0.10.1:
 - Add "tint" and "shade" functions from Thoughtbot's "Bourbon."
