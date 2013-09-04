@@ -8,8 +8,16 @@
  * ---------------------------------------------------------------------------------------- */
 
 // WHOLE TABLE STYLES
-@mixin table-style-simple {
+@mixin table-style-base {
+	width: 100%; margin-bottom: $baseline; padding: 0;
+	border-collapse: separate; *border-collapse: collapse; //FOR IE 7
+
+}
+
+@mixin table-style-simple( $c: $light1 ) {
 	@include table-style-base;
+	@include border-radius(4px);
+	border: 1px solid $c;
 	td { @include table-td-style-base; }
 	th { @include table-th-style-base; }
 	thead { @include table-thead-style-simple; }
@@ -18,7 +26,9 @@
 }
 
 @mixin table-style-shaded( $c: $light1 ) {
-	@include table-style-base( $c );
+	@include table-style-base;
+	@include border-radius(4px);
+	border: 1px solid $c;
 	td { @include table-td-style-base; }
 	th { @include table-th-style-shaded( $c ); }
 	thead { @include table-thead-style-shaded( $c ); }
@@ -27,20 +37,15 @@
 }
 
 @mixin table-style-striped( $c: $light1 ) {
-	@include table-style-base( $c );
+	@include table-style-base;
+	@include border-radius(4px);
+	border: 1px solid $c;
 	td { @include table-td-style-base; }
 	th { @include table-th-style-base; }
 	thead { @include table-thead-style-simple( $c ); }
 	tbody { @include table-tbody-style-striped( $c ); }
 	caption { @include caption-style-simple; }
 	@include table-style-striped-no-header-style( $c );
-}
-
-@mixin table-style-base( $c: $light1 ) {
-	$style: 1px solid $c;
-	width: 100%; margin-bottom: $baseline; padding: 0; border: $style;
-	border-collapse: separate; *border-collapse: collapse; //FOR IE 7
-	@include border-radius(4px);
 }
 
 // CELL STYLES
