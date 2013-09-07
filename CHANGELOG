@@ -1,7 +1,7 @@
 =======
 ROADMAP
 =======
-TODO: V0.11.0:
+TODO: V0.11.x:
 > Expand docs re: fractionalize grid options, default settings, responsive breakpoints
 
 TODO: V0.12.0
@@ -24,6 +24,9 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
+0.11.1:
+- Don't include jetpack/defaults by default, lol.
+
 0.11.0:
 - Overhaul Interface Library. Redo button, label, message mixins.
 - Add highlight, highlight-with-border, inset-text to Core.
