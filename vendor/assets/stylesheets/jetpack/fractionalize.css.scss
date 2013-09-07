@@ -31,8 +31,16 @@
 
 	--------------------------------------------------	*/
 
+// DEFAULTS //
+$fixed-width: 1000px !default;
+$fixed-margin: 20px !default;
+
+$fluid-width: 90% !default;
+$fluid-margin: 2% !default;
+
+
 @mixin container {
-	width: $desktop;
+	width: $fixed-width;
 	@if $responsive {
 		@include respond-to(tablet) { width: $tablet; }
 		@include respond-to(mobile) { width: $mobile; }
@@ -42,16 +50,17 @@
 	@include clearfix;
 }
 
-@function col-span( $num, $denom, $width: $desktop ) {
+// FIXED-WIDTH FUNCTIONS
+@function col-span( $num, $denom, $width: $fixed-width ) {
 	$column_size: col-size( $denom, $width );
 	$column_area: $column_size * $num;
-	$interior_margins: ($num - 1) * $margin;
+	$interior_margins: ($num - 1) * $fixed-margin;
 	@return $column_area + $interior_margins;
 }
 
-@function col-size( $denom, $width: $desktop ) {
+@function col-size( $denom, $width: $fixed-width ) {
 	$gutters: $denom - 1;
-	$total_gutter: $gutters * $margin;
+	$total_gutter: $gutters * $fixed-margin;
 	$column_area: $width - $total_gutter;
 	@return $column_area / $denom;
 }
@@ -59,7 +68,7 @@
 @mixin grid( $num, $denom ) {
 	display: block;
 	float: left;
-	margin-left: $margin;
+	margin-left: $fixed-margin;
 	width: col-span( $num, $denom );
 	&:first-child { margin-left: 0; }
 	@if $responsive {
@@ -70,42 +79,25 @@
 }
 
 @mixin prepend( $num, $denom ) {
-	margin-left: col-span( $num, $denom ) + $margin;
-	&:first-child { margin-left: col-span( $num, $denom ) + $margin; }
+	margin-left: col-span( $num, $denom ) + $fixed-margin;
+	&:first-child { margin-left: col-span( $num, $denom ) + $fixed-margin; }
 }
 
 @mixin append( $num, $denom ) {
-	margin-right: col-span( $num, $denom ) + $margin;
-	&:first-child { margin-right: col-span( $num, $denom ) + $margin; }
+	margin-right: col-span( $num, $denom ) + $fixed-margin;
+	&:first-child { margin-right: col-span( $num, $denom ) + $fixed-margin; }
 }
 
 @mixin col_border( $thickness: 1px, $style: solid, $color: #CCC ) {
-	$half: $margin / 2;
+	$half: $fixed-margin / 2;
 	$padding: $half - $thickness;
 	padding-left: $padding;
 	margin-left: $half;
 	border-left: $thickness $style $color;
 }
 
-// FLUID VERSION
-$fluid-margin: 1%;
-$fluid-width: 96%;
 
-@mixin fluid-container {
-	width: $fluid-width; padding: 0 (100%-$fluid-width)/2; @include clearfix;
-}
-
-@mixin fluid-grid( $num, $denom ) {
-	display: block; float: left;
-	margin-left: $fluid-margin;
-	width: fluid-col-span( $num, $denom );
-	&:first-child { margin-left: 0; }
-	@if $responsive {
-		@include respond-to(mobile) { width: 100%; margin-left: 0; }
-	}
-	img { max-width: 100%; }
-}
-
+// FLUID FUNCTIONS
 @function fluid-col-span( $num, $denom ) {
 	$column_size: fluid-col-size( $denom );
 	$column_area: $column_size * $num;
@@ -119,3 +111,32 @@ $fluid-width: 96%;
 	$column_area: 100% - $total_gutter;
 	@return $column_area / $denom;
 }
+
+@mixin fluid-container {
+	width: $fluid-width;
+	padding: 0 (100%-$fluid-width)/2;
+	@include clearfix;
+}
+
+@mixin fluid-grid( $num, $denom ) {
+	display: block; float: left;
+	margin-left: $fluid-margin;
+	width: fluid-col-span( $num, $denom );
+	&:first-child { margin-left: 0; }
+	@if $responsive {
+		@include respond-to(mobile) { width: 100%; margin-left: 0; }
+	}
+	img { max-width: 100%; }
+}
+
+@mixin fluid-prepend( $num, $denom ) {
+	margin-left: fluid-col-span( $num, $denom ) + $fluid-margin;
+	&:first-child { margin-left: fluid-col-span( $num, $denom ) + $fluid-margin; }
+	@include respond-to(mobile) { margin-left: 0; &:first-child { margin-left: 0; }}
+}
+
+@mixin fluid-append( $num, $denom ) {
+	margin-right: fluid-col-span( $num, $denom ) + $fluid-margin;
+	@include respond-to(mobile) { margin-right: 0; }
+}
+

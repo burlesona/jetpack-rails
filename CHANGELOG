@@ -1,8 +1,8 @@
 =======
 ROADMAP
 =======
-TODO: V0.11.1
-> Fixup the fluid grid container / fixed grid presets
+TODO: V0.11.0:
+> Expand docs re: fractionalize grid options, default settings, responsive breakpoints
 
 TODO: V0.12.0
 > Finish demo/documentation for Modals and Tipsy
@@ -32,6 +32,8 @@ CHANGELOG:
 - Tweak preset success, notice, error color2's to be a little brighter. Since these are no longer
   directly used for text, it's easier to get a balance of the right
 - Update table style base to not define a border, just the width etc.
+- Fixup the fluid grid container / fixed grid presets
+- Add fluid append and fluid prepend
 
 0.10.1:
 - Add "tint" and "shade" functions from Thoughtbot's "Bourbon."

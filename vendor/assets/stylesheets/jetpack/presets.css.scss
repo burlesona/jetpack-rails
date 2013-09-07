@@ -45,9 +45,10 @@ $base_size: 15px;
 $base_weight: 400;
 $baseline: 20px;
 
-// LAYOUT DEFAULTS
+// RESPONSIVE TOGGLE AND BREAKPOINTS
+// Value = width of fixed container, anything smaller breaks to the next lower layout
+// Disable responsive grid by changing $responsive to false
 $responsive: true;
 $desktop: 1000px;
 $tablet: 760px;
 $mobile: 280px;
-$margin: 20px;

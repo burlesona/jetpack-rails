@@ -19,13 +19,13 @@
 // Add responsive styles for different screen sizes
 @mixin respond-to($media) {
 	@if $media == desktop {
-		@media screen and (min-width: 1024px) { @content; }
+		@media screen and (min-width: $desktop) { @content; }
 	}
 	@if $media == tablet {
-		@media screen and (device-width: 768px), screen and (min-width: 768px) and (max-width: 1023px) { @content; }
+		@media screen and (device-width: $tablet), screen and (min-width: $tablet) and (max-width: $desktop - 1px) { @content; }
 	}
 	@else if $media == mobile {
-		@media screen and (device-width: 480px), screen and (max-width: 767px) { @content; }
+		@media screen and (device-width: $mobile), screen and (max-width: $tablet - 1px) { @content; }
 	}
 }
 
