@@ -7,14 +7,14 @@
 // BODY TEXT
 @mixin text {
 	body {
-		font-size: $base_size;
+		font-size:   $base_size;
 		font-family: $base_font;
 		font-weight: $base_weight;
 		line-height: $baseline;
 	}
 
 	p {
-		margin-bottom: $baseline / 2;
+		margin-bottom: $baseline;
 		small { font-size: $base_size - 2; color: $light2; }
 	}
 	strong { font-style: inherit; font-weight: 700; }
@@ -73,10 +73,10 @@
 
 // LISTS
 @mixin lists {
-	ol { margin: $baseline/2 0; list-style: decimal; padding: 0 0 0 20px; }
-	ul { margin: $baseline/2 0; list-style: square; padding: 0 0 0 15px; }
+	ol { margin: $baseline/2 0 $baseline; list-style: decimal; padding: 0 0 0 20px; }
+	ul { margin: $baseline/2 0 $baseline; list-style: square; padding: 0 0 0 20px; }
 	ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
-	li { line-height: $baseline; color: inherit; }
+	li { line-height: $baseline; color: inherit; margin-bottom: $baseline/2; }
 
 	dl {
 		margin-bottom: $baseline;
