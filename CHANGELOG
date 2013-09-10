@@ -24,6 +24,9 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
+0.11.1:
+- Improvements to vertical spacing in typography
+
 0.11.0:
 - Overhaul Interface Library. Redo button, label, message mixins.
 - Add highlight, highlight-with-border, inset-text to Core.
