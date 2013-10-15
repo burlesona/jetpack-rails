@@ -56,12 +56,11 @@
 	}
 }
 
-// MODALS
-// TODO: should this go in a js-styles or modal module?
-@mixin modal {
+// MODAL STYLE
+@mixin modal-style-default {
 	.modal-bg { @include full-screen; background: $dark1; opacity: 0.8; }
-	.modal { display: none; top: 10%; left: 30%; right: 30%; background: $dark2; position: absolute; z-index: 1001; padding: $baseline; }
-	.modal .close-modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
+	.modal-window { display: none; top: 10%; left: 30%; right: 30%; background: $light1; position: fixed; z-index: 1001; padding: $baseline; @include box-shadow; }
+	.modal-window .close-modal { font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; text-shadow: 0 -1px 1px rbga(0,0,0,.6); font-weight: bold; cursor: pointer; }
 }
 
 // TIPSY

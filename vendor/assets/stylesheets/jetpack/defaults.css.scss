@@ -65,3 +65,6 @@ table.striped { @include table-style-striped; }
 div.tab-wrapper { @include tab-style-simple; }
 div.pill-wrapper { @include pill-style-simple; }
 
+// JS
+@include modal-style-default;
+

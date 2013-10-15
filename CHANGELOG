@@ -24,6 +24,15 @@ TODO: V1.0
 ==========
 CHANGELOG:
 ==========
+0.12.0:
+- Totally Overhauled JS functions.
+- Renamed "Alerts" -> "Flash Messages" in JS
+- Added a bunch of new modal options.
+- Don't include "defaults" by default. These should probably be named something different, like
+  "default selectors..."
+
+
+
 0.11.1:
 - Improvements to vertical spacing in typography
 
