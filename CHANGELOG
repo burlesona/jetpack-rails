@@ -1,7 +1,7 @@
 =======
 ROADMAP
 =======
-TODO: V0.11.0:
+TODO: V0.11.x:
 > Expand docs re: fractionalize grid options, default settings, responsive breakpoints
 
 TODO: V0.12.0
@@ -31,10 +31,9 @@ CHANGELOG:
 - Don't include "defaults" by default. These should probably be named something different, like
   "default selectors..."
 
-
-
 0.11.1:
 - Improvements to vertical spacing in typography
+- Don't include jetpack/defaults by default, lol.
 
 0.11.0:
 - Overhaul Interface Library. Redo button, label, message mixins.
