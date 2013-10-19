@@ -1,4 +1,4 @@
-// Modal Windows
+// Jetpack Namespace
 if( typeof Jetpack == 'undefined' ) {
   Jetpack = {};
 }

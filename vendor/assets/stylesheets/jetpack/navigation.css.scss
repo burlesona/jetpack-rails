@@ -32,7 +32,7 @@
 
 
 @mixin tab-style-base {
-	.tab-container {
+	.viewport {
 		@include clearfix;
 	  div {
 		  display: none;
@@ -52,7 +52,7 @@
 
 @mixin tab-style-simple {
 	@include tab-style-base;
-	.tab-container {
+	.viewport {
 		 border: 1px solid $light1; padding: $baseline/2;
 	}
 	.tabs {
@@ -67,7 +67,7 @@
 }
 
 @mixin pill-style-base {
-	.pill-container { @include clearfix;
+	.viewport { @include clearfix;
 		div { display: none;
 			&.active { display: block; }
 		}

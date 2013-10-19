@@ -1,53 +1,88 @@
-/*
-* Skeleton Tabs Remix
-* Converting to a jQuery function that can be called
-* .tabs() or .pills()
-* on any selector.
-*
-* Based on:
-* Skeleton V1.1
-* Copyright 2011, Dave Gamache
-* www.getskeleton.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 8/17/2011
-*/
+// Jetpack Namespace
+if( typeof Jetpack == 'undefined' ) {
+  Jetpack = {};
+}
 
-(function($) {
-	$.fn.tabs = $.fn.pills = function() {
-		var selector = $(this);
-
-		// Call on each occurance
-		selector.each( function(i) {
-
-			//Get all tabs
-			var tabs = $(this).find('> li > a');
-
-
-			tabs.click(function(e) {
-
-				//Get Location of tab's content
-				var contentLocation = $(this).attr('href');
-
-				//Let go if not a hashed one
-				if(contentLocation.charAt(0)=="#") {
-
-					e.preventDefault();
-
-					//Make Tab Active
-					tabs.removeClass('active');
-					$(this).addClass('active');
-
-					//Show Tab Content & add active class
-					$(contentLocation).addClass('active').siblings().removeClass('active');
-
-				}
-			});
-
-			tabs.first().addClass('active')
-			var firstTab = tabs.first().attr('href');
-			$(firstTab).addClass('active').siblings().removeClass('active');
-
+// Init options:
+// options -
+// wrapper: defaults to '.tab-wrapper'
+// nav: defaults to '.tabs'
+// viewport: defaults to '.viewport'
+Jetpack.tabs = {
+	views: [],
+	init: function(options) {
+    if(typeof options == 'undefined' ) {
+      var options = {};
+    }
+    if(typeof options.wrapper == 'undefined'){
+      options.wrapper = '.tab-wrapper';
+    }
+    if(typeof options.nav == 'undefined'){
+      options.nav = '.tabs';
+    }
+    if(typeof options.viewport == 'undefined'){
+      options.viewport = '.viewport';
+    }
+    this.bind(options);
+	},
+	bind: function(options) {
+		var self = this;
+		$(options.wrapper).each(function(i,el){
+			self.views.push(new Jetpack.TabView(el,options));
 		});
 	}
-})(jQuery);
+};
+
+// Pills alias, calls tabs with different default options
+// options -
+// wrapper: defaults to '.pill-wrapper'
+// nav: defaults to '.pills'
+// viewport: defaults to '.viewport'
+Jetpack.pills = {
+	init: function(options) {
+    if(typeof options == 'undefined' ) {
+      var options = {};
+    }
+    if(typeof options.wrapper == 'undefined'){
+      options.wrapper = '.pill-wrapper';
+    }
+    if(typeof options.nav == 'undefined'){
+      options.nav = '.pills';
+    }
+    if(typeof options.viewport == 'undefined'){
+      options.viewport = '.viewport';
+    }
+    Jetpack.tabs.bind(options);
+	}
+};
+
+
+Jetpack.TabView = function(selector,options) {
+	this.$el = $(selector);
+	this.$tabs = this.$el.find(options.nav);
+	this.$view = this.$el.find(options.viewport);
+	this.bind();
+
+	var firstID = this.$tabs.find('a').first().attr('href');
+	this.setView(firstID);
+};
+
+Jetpack.TabView.prototype = {
+	bind: function() {
+		var self = this;
+		this.$tabs.on('click','a',function(event){
+			// Ignore regular links
+			var id = $(this).attr('href');
+			if( id.charAt(0) == '#' ) {
+				event.preventDefault();
+				self.setView( id );
+			}
+		});
+	},
+	setView: function(id) {
+		this.$tabs.find('a').removeClass('active');
+		this.$tabs.find('a[href='+id+']').addClass('active');
+		this.$view.children().removeClass('active');
+		this.$view.find(id).addClass('active');
+	}
+};

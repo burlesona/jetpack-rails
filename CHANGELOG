@@ -6,13 +6,14 @@ TODO: DOCS
 > Add installation instructions
 
 TODO: V0.12.0
-> Finish demo/documentation for Modals and Tipsy
 > Change the helpers to be optional (add to application helper using include Jetpack::Helpers)
-> Review the JS
-> Create a "defaults.js" that works the same way as defaults.css
-> ADD PILLS / TABS to defaults.js
 > Add demo/documentation page for helpers
-> Add demo/documentation page for javascripts
+
+-- JS --
+> Re-Implement Tabs / Pills / Tipsy
+> Move JS Specific Styles each to their own module like 'js/tabs'
+> Create a "bindings.js" file that auto-binds the functions.
+> Finish demo/documentation page for javascripts
 
 TODO: V0.13.0
 > Clear out any remaining ideas from Wunderlist

@@ -1,4 +1,4 @@
-// Flash Message Handlder
+// Jetpack Namespace
 if( typeof Jetpack == 'undefined' ) {
   Jetpack = {};
 }
