@@ -1,8 +1,9 @@
 =======
 ROADMAP
 =======
-TODO: V0.11.x:
+TODO: DOCS
 > Expand docs re: fractionalize grid options, default settings, responsive breakpoints
+> Add installation instructions
 
 TODO: V0.12.0
 > Finish demo/documentation for Modals and Tipsy
@@ -30,6 +31,7 @@ CHANGELOG:
 - Added a bunch of new modal options.
 - Don't include "defaults" by default. These should probably be named something different, like
   "default selectors..."
+- ^ On that note, rename "defaults" -> "selectors"
 
 0.11.1:
 - Improvements to vertical spacing in typography
