@@ -1,5 +1,4 @@
 require 'sass-rails'
-require 'jetpack/railtie' if defined?(Rails)
 
 module Jetpack
 	module Rails

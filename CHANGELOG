@@ -6,11 +6,10 @@ TODO: DOCS
 > Add installation instructions
 
 TODO: V0.12.0
-> Change the helpers to be optional (add to application helper using include Jetpack::Helpers)
 > Add demo/documentation page for helpers
 
 -- JS --
-> Re-Implement Tabs / Pills / Tipsy
+> Re-Implement Tipsy?
 > Move JS Specific Styles each to their own module like 'js/tabs'
 > Create a "bindings.js" file that auto-binds the functions.
 > Finish demo/documentation page for javascripts
@@ -33,6 +32,8 @@ CHANGELOG:
 - Don't include "defaults" by default. These should probably be named something different, like
   "default selectors..."
 - ^ On that note, rename "defaults" -> "selectors"
+- Remove the Railtie. We don't want to load the Jetpack Helpers without them being explicitly
+  required.
 
 0.11.1:
 - Improvements to vertical spacing in typography
